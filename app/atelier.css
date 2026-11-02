@@ -35,4 +35,4 @@ html[data-reduced=true] .mirror-scan,html[data-reduced=true] .voice-wave i,html[
 .ecology-lab .eco-stage-number strong{font-size:96px}
 @media(max-width:1100px){.identity-section .section-intro h2{font-size:64px}}
 @media(max-width:760px){.identity-section .section-intro h2{font-size:48px}.ecology-lab .eco-stage-number strong{font-size:80px}}
-.wardrobe-atelier .ar-viewport>.ar-garment-overlay{z-index:2;pointer-events:none!important;object-fit:fill}.wardrobe-atelier .ar-viewport .mirror-frame,.wardrobe-atelier .ar-viewport .mirror-meta,.wardrobe-atelier .ar-viewport .mirror-scan{z-index:3;pointer-events:none}
+.wardrobe-atelier .ar-viewport>.ar-garment-overlay{z-index:2;pointer-events:none!important;object-fit:fill}.wardrobe-atelier .ar-viewport>.ar-foreground-mask{z-index:3;pointer-events:none;object-fit:fill}.wardrobe-atelier .ar-viewport .mirror-frame,.wardrobe-atelier .ar-viewport .mirror-meta,.wardrobe-atelier .ar-viewport .mirror-scan{z-index:4;pointer-events:none}
