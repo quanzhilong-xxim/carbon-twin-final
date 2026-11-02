@@ -1,0 +1,14 @@
+'use client';
+import { Bike, Leaf, Zap, ArrowUpRight, MoveUpRight, Info } from 'lucide-react';
+import GlassPanel from './GlassPanel';
+import { useCarbonStore } from '@/lib/store';
+const fields = [
+  { key: 'distance' as const, label: '每日通勤距离', english: 'MOBILITY', unit: 'km', min: 0, max: 50, icon: Bike, hint: '距离相同，交通方式也会改变排放。', source: 'https://www.ipcc.ch/report/ar6/wg3/chapter/chapter-10/' },
+  { key: 'plantDays' as const, label: '每周植物性饮食', english: 'FOOD', unit: '天', min: 0, max: 7, icon: Leaf, hint: '饮食结构是理解食物系统的重要视角。', source: 'https://www.ipcc.ch/srccl/' },
+  { key: 'electricity' as const, label: '每日家庭用电', english: 'ENERGY', unit: 'kWh', min: 0, max: 30, icon: Zap, hint: '电力的排放因子因地区和年份而异。', source: 'https://ghgprotocol.org/scope-2-guidance' },
+];
+export default function SimulatorShell() {
+  const distance = useCarbonStore(s => s.distance), plantDays = useCarbonStore(s => s.plantDays), electricity = useCarbonStore(s => s.electricity), setSlider = useCarbonStore(s => s.setSlider);
+  const values = { distance, plantDays, electricity };
+  return <GlassPanel className="simulator-shell" display="grid"><div className="simulator-inputs"><div className="panel-heading"><span className="live-dot" /><span>设计你的日常</span><span className="panel-badge">交互预览</span></div>{fields.map(({ key, label, english, unit, min, max, icon: Icon, hint, source }) => <div className="slider-field" key={key}><div className="slider-heading"><span className="slider-icon"><Icon size={18} /></span><label htmlFor={`slider-${key}`}>{label}<small>{english}</small></label><output htmlFor={`slider-${key}`}>{values[key]} <span>{unit}</span></output></div><input id={`slider-${key}`} type="range" min={min} max={max} value={values[key]} onChange={e => setSlider(key, Number(e.target.value))} style={{ '--range-progress': `${(values[key] - min) / (max - min) * 100}%` } as React.CSSProperties} /><div className="range-labels"><span>{min} {unit}</span><span>{max} {unit}</span></div><a className="slider-knowledge" href={source} target="_blank" rel="noopener noreferrer"><Info size={13} /><span>{hint}</span><ArrowUpRight size={13} /></a></div>)}</div><div className="simulator-output"><div className="output-top"><span className="tiny-label">YOUR EVERYDAY, REIMAGINED</span><MoveUpRight size={20} /></div><div className="footprint-orbit"><div className="footprint-ring ring-one" /><div className="footprint-ring ring-two" /><div className="footprint-ticks" /><div className="footprint-center"><Leaf size={23} strokeWidth={1.3} /><span className="footprint-number">—<span>CO₂e</span></span><span className="tiny-label">你的足迹，从这里开始</span></div><span className="orbit-point point-one" /><span className="orbit-point point-two" /></div><div className="output-caption"><span className="panel-badge">行动实验室 · 预览</span><h3>让每一个选择，<br />都有迹可循。</h3><p>先探索你的生活参数。碳排计算与图表将在下一阶段接入，当前不生成估算结果。</p></div></div></GlassPanel>;
+}

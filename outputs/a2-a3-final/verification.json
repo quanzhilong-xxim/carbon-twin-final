@@ -1,0 +1,12 @@
+{
+  "base": "http://127.0.0.1:3030",
+  "results": [
+    {
+      "name": "hero: three videos, optical cards, typography and aura",
+      "passed": false,
+      "error": "Expected values to be strictly equal:\n\n'0' !== '1'\n"
+    }
+  ],
+  "pageErrors": [],
+  "aiEvidence": []
+}

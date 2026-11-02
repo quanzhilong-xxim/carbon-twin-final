@@ -1,0 +1,37 @@
+.identity-stage { position: relative; height: 450px; width: 100%; perspective: 1400px; display: flex; justify-content: center; align-items: center; }
+.identity-card { --card-accent: #bba6ff; position: absolute; width: 330px; height: 414px; border-radius: 24px; padding: 26px; text-align: left; transform-style: preserve-3d; overflow: hidden; border: 1px solid color-mix(in srgb,var(--card-accent) 24%,transparent); background: radial-gradient(ellipse at 50% 32%,color-mix(in srgb,var(--card-accent) 18%,transparent),transparent 58%),linear-gradient(135deg,#223049,#111c30 75%); box-shadow: inset 0 1px 0 #ffffff16,0 22px 60px #00081945; }
+.identity-card > *:not(.identity-optics) { position: relative; z-index: 1; }
+.identity-optics { position: absolute !important; inset: 0; z-index: 0; pointer-events: none; border-radius: inherit; opacity: .34; }
+.identity-card.selected { box-shadow: inset 0 1px 0 #fff3,0 0 80px color-mix(in srgb,var(--card-accent) 7%,transparent),0 28px 80px #00071970; }
+.identity-card-top { display: flex; justify-content: space-between; color: var(--card-accent); font-size: 8px; letter-spacing: 1.6px; }
+.identity-art { position: relative; height: 171px; display: grid; place-items: center; }
+.identity-icon { position: relative; color: var(--card-accent); width: 83px; height: 83px; display: grid; place-items: center; border-radius: 50%; background: radial-gradient(circle,color-mix(in srgb,var(--card-accent) 12%,transparent),transparent); filter: drop-shadow(0 0 12px color-mix(in srgb,var(--card-accent) 30%,transparent)); }
+.identity-orbit { position: absolute; width: 138px; height: 138px; border: 1px solid color-mix(in srgb,var(--card-accent) 25%,transparent); border-radius: 50%; }
+.orbit-a { transform: rotateX(65deg) rotateZ(-20deg); width: 205px; height: 205px; }
+.orbit-b { transform: rotateY(65deg) rotateZ(25deg); width: 165px; height: 165px; }
+.orbit-c { width: 142px; height: 142px; border-style: dashed; opacity: .5; }
+.orbit-node { position: absolute; width: 6px; height: 6px; top: 38px; left: 53px; border-radius: 50%; background: var(--card-accent); box-shadow: 0 0 12px var(--card-accent); }
+.identity-copy .tiny-label { font-size: 7px; }
+.identity-copy h3 { display: flex; align-items: center; justify-content: space-between; font-size: 26px; font-weight: 500; margin: 11px 0; }
+.identity-copy h3 svg { color: var(--card-accent); }
+.identity-copy p { margin: 0; line-height: 1.9; font-size: 11px; color: #a5b4c6; }
+.identity-tags { display: flex; gap: 6px; margin-top: 17px; }
+.identity-tags > span { border: 1px solid #ffffff16; border-radius: 30px; padding: 5px 9px; color: #aebace; font-size: 8px; }
+.carousel-controls { display: flex; align-items: center; justify-content: center; gap: 25px; margin-top: 18px; }
+.circle-button { width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--line); display: grid; place-items: center; transition: border-color .25s,background .25s; }
+.circle-button:hover { border-color: var(--current-accent); background: #b1bfff16; }
+.carousel-dots { display: flex; gap: 8px; align-items: center; }
+.carousel-dots button { padding: 0; width: 6px; height: 6px; border-radius: 99px; background: #697a8f; transition: width .3s,background .3s; }
+.carousel-dots button::before { content: ''; display: block; width: 24px; height: 24px; position: relative; left: -8px; top: -8px; }
+.carousel-dots .selected { width: 24px; background: var(--current-accent); }
+.identity-caption { text-align: center; color: #bdc9d6; font-size: 11px; letter-spacing: 1px; margin-top: 22px; }
+.perspective-note { display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 50px; color: #7b8ea3; font-size: 10px; }
+.perspective-note strong { font-weight: 500; color: var(--current-accent); }
+@media(max-width:700px) {
+  .identity-stage { height: 395px; }
+  .identity-card { width: 270px; height: 370px; padding: 22px; }
+  .identity-art { height: 140px; }
+  .identity-copy h3 { font-size: 23px; }
+  .identity-tags { gap: 4px; }
+  .identity-tags > span { font-size: 7px; }
+}

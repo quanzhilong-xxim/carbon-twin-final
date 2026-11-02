@@ -1,0 +1,192 @@
+{
+  "assets": [
+    {
+      "id": "tshirt",
+      "uid": "7018d8578d6b4ee7af010d26eda1ecc9",
+      "title": "T-shirt",
+      "author": "Nayeem",
+      "license": "CC Attribution",
+      "licenseUrl": "http://creativecommons.org/licenses/by/4.0/",
+      "source": "https://sketchfab.com/3d-models/7018d8578d6b4ee7af010d26eda1ecc9",
+      "archive": "https://huggingface.co/datasets/allenai/objaverse",
+      "verified": "2026-11-03",
+      "rotation": 1.5707963267948966,
+      "originalTriangles": 33054,
+      "triangles": 33054,
+      "bounds": {
+        "min": [
+          -15.650822162628174,
+          0,
+          -25.19020366668701
+        ],
+        "max": [
+          15.650822162628174,
+          65.39500427246094,
+          25.19020366668701
+        ]
+      },
+      "modifications": "Selected garment meshes, optimized geometry and textures; runtime fabric recoloring and physical material conversion. Not an image-to-3D reconstruction.",
+      "hasOriginalNormal": true,
+      "authorUrl": "https://sketchfab.com/nayem"
+    },
+    {
+      "id": "jacket",
+      "uid": "4348be24475c45dd9a5bdf6e62ba7ebc",
+      "title": "Jeans Jacket #AgisoftClothesChallenge",
+      "author": "Sircher",
+      "license": "CC Attribution",
+      "licenseUrl": "http://creativecommons.org/licenses/by/4.0/",
+      "source": "https://sketchfab.com/3d-models/4348be24475c45dd9a5bdf6e62ba7ebc",
+      "archive": "https://huggingface.co/datasets/allenai/objaverse",
+      "verified": "2026-11-03",
+      "rotation": 0,
+      "originalTriangles": 99885,
+      "triangles": 99885,
+      "bounds": {
+        "min": [
+          -0.9854715686191369,
+          0,
+          -0.27727896903360705
+        ],
+        "max": [
+          0.9854715686191369,
+          2.30040139775131,
+          0.27727896903360694
+        ]
+      },
+      "modifications": "Selected garment meshes, optimized geometry and textures; runtime fabric recoloring and physical material conversion. Not an image-to-3D reconstruction.",
+      "hasOriginalNormal": true,
+      "authorUrl": "https://sketchfab.com/Sircher"
+    },
+    {
+      "id": "trousers",
+      "uid": "33ec066dd147462494ff1ab544bcc469",
+      "title": "Capri Khaki Royalton Excursions",
+      "author": "albertoch",
+      "license": "CC Attribution",
+      "licenseUrl": "http://creativecommons.org/licenses/by/4.0/",
+      "source": "https://sketchfab.com/3d-models/33ec066dd147462494ff1ab544bcc469",
+      "archive": "https://huggingface.co/datasets/allenai/objaverse",
+      "verified": "2026-11-03",
+      "rotation": 0,
+      "originalTriangles": 132813,
+      "triangles": 109996,
+      "bounds": {
+        "min": [
+          -0.1846067039435184,
+          0,
+          -0.11302867949424533
+        ],
+        "max": [
+          0.1846067039435184,
+          0.8638582639924897,
+          0.11302867949424533
+        ]
+      },
+      "modifications": "Selected garment meshes, optimized geometry and textures; runtime fabric recoloring and physical material conversion. Not an image-to-3D reconstruction.",
+      "hasOriginalNormal": true,
+      "authorUrl": "https://sketchfab.com/albertoch"
+    },
+    {
+      "id": "shorts",
+      "uid": "f6bca89e7a49466daad36b259fbe0772",
+      "title": "Orange Puff Shorts",
+      "author": "Mckai",
+      "license": "CC Attribution",
+      "licenseUrl": "http://creativecommons.org/licenses/by/4.0/",
+      "source": "https://sketchfab.com/3d-models/orange-puff-shorts-f6bca89e7a49466daad36b259fbe0772",
+      "archive": "https://huggingface.co/datasets/allenai/objaverse",
+      "verified": "2026-11-03",
+      "rotation": 0,
+      "originalTriangles": 7968,
+      "triangles": 7968,
+      "bounds": {
+        "min": [
+          -0.1498466432094574,
+          0.6947910785675049,
+          -0.069217748939991
+        ],
+        "max": [
+          0.16364766657352448,
+          1.070879578590393,
+          0.1163056343793869
+        ]
+      },
+      "modifications": "Original single-garment mesh recoloured khaki with a matte fabric material; decorative tassel mesh hidden. Not an image-to-3D reconstruction.",
+      "hasOriginalNormal": true,
+      "authorUrl": "https://sketchfab.com/tijerin_art"
+    },
+    {
+      "id": "sweater",
+      "uid": "7075ff0a93d14fdd8cf34121f0897777",
+      "title": "Male Sweater",
+      "author": "ntrousdale",
+      "license": "CC Attribution",
+      "licenseUrl": "http://creativecommons.org/licenses/by/4.0/",
+      "source": "https://sketchfab.com/3d-models/7075ff0a93d14fdd8cf34121f0897777",
+      "archive": "https://huggingface.co/datasets/allenai/objaverse",
+      "verified": "2026-11-03",
+      "rotation": 0,
+      "originalTriangles": 5104,
+      "triangles": 5104,
+      "bounds": {
+        "min": [
+          -0.027447113377292887,
+          0,
+          -0.007247438864839695
+        ],
+        "max": [
+          0.027447113377292887,
+          0.028100094167140988,
+          0.007247438864839695
+        ]
+      },
+      "modifications": "Selected garment meshes, optimized geometry and textures; runtime fabric recoloring and physical material conversion. Not an image-to-3D reconstruction.",
+      "hasOriginalNormal": true,
+      "authorUrl": "https://sketchfab.com/ntrousdale"
+    },
+    {
+      "id": "jeans",
+      "uid": "ea045ee2bd364a6fb21a2c51181bcaf9",
+      "title": "Original Blue Denim Jeans",
+      "author": "hazelmatthews",
+      "license": "CC Attribution",
+      "licenseUrl": "http://creativecommons.org/licenses/by/4.0/",
+      "source": "https://sketchfab.com/3d-models/ea045ee2bd364a6fb21a2c51181bcaf9",
+      "archive": "https://huggingface.co/datasets/allenai/objaverse",
+      "verified": "2026-11-03",
+      "rotation": 0,
+      "originalTriangles": 566177,
+      "triangles": 563796,
+      "bounds": {
+        "min": [
+          -46.51963316049711,
+          0,
+          -44.959926903914365
+        ],
+        "max": [
+          46.5196331604971,
+          238.71838679706974,
+          44.95992690391437
+        ]
+      },
+      "modifications": "Selected garment meshes, optimized geometry and textures; runtime fabric recoloring and physical material conversion. Not an image-to-3D reconstruction.",
+      "hasOriginalNormal": false,
+      "authorUrl": "https://sketchfab.com/hazelmatthews"
+    }
+  ],
+  "textures": [
+    {
+      "source": "https://polyhaven.com/a/fabric_pattern_05",
+      "license": "CC0"
+    },
+    {
+      "source": "https://polyhaven.com/a/denim_fabric",
+      "license": "CC0"
+    },
+    {
+      "source": "https://polyhaven.com/a/knitted_fleece",
+      "license": "CC0"
+    }
+  ]
+}

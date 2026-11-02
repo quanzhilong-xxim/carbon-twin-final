@@ -1,0 +1,10 @@
+{
+  "extends": ["next/core-web-vitals", "next/typescript"],
+  "ignorePatterns": ["work/**", "carbon-twin/**", "npm-cache/**", "temp/**", "vercel-config/**"],
+  "overrides": [{
+    "files": ["components/**/*.{ts,tsx}", "app/**/*.{ts,tsx}"],
+    "rules": {
+      "no-restricted-imports": ["error", { "patterns": [{ "group": ["**/stores/internal/**", "**/stores/internal", "@/lib/core/CarbonWorkerClient", "@/lib/core/StateMachine"], "message": "UI must use read-only Store selectors or the lifecycle hook; engine capabilities are internal." }] }]
+    }
+  }]
+}

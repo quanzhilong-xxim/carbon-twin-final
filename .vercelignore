@@ -1,0 +1,12 @@
+node_modules
+.next
+npm-cache
+temp
+work
+public/media/originals
+test-results
+playwright-report
+.env.local
+carbon-twin
+vercel-config
+config

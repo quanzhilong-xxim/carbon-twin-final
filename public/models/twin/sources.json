@@ -1,0 +1,83 @@
+{
+  "license": "CC0 1.0",
+  "note": "Models are visual assets, not measured product emissions. Indoor appliance mechanical assembly and airflow are original procedural artwork.",
+  "sources": [
+    {
+      "provider": "Kenney",
+      "url": "https://kenney.nl/assets/city-kit-commercial",
+      "file": "city.glb",
+      "fullBuildingVariants": 19,
+      "lowDetailVariants": 16
+    },
+    {
+      "provider": "Poly Haven",
+      "url": "https://polyhaven.com/a/Sofa_01"
+    },
+    {
+      "provider": "Poly Haven",
+      "url": "https://polyhaven.com/a/modern_coffee_table_01"
+    },
+    {
+      "provider": "Poly Haven",
+      "url": "https://polyhaven.com/a/exterior_aircon_unit"
+    },
+    {
+      "provider": "Poly Haven",
+      "url": "https://polyhaven.com/a/potted_plant_01"
+    },
+    {
+      "provider": "Poly Haven",
+      "url": "https://polyhaven.com/a/television_02"
+    },
+    {
+      "provider": "Poly Haven",
+      "url": "https://polyhaven.com/a/modular_urban_apartments_facade"
+    },
+    {
+      "provider": "Poly Haven",
+      "url": "https://polyhaven.com/a/laminate_floor_02"
+    },
+    {
+      "provider": "Poly Haven",
+      "url": "https://polyhaven.com/a/dikhololo_night"
+    },
+    {
+      "provider": "Poly Haven",
+      "url": "https://polyhaven.com/a/vintage_electric_kettle",
+      "file": "kettle.glb"
+    },
+    {
+      "provider": "Poly Haven",
+      "url": "https://polyhaven.com/a/metal_office_desk",
+      "file": "desk.glb"
+    },
+    {
+      "provider": "Poly Haven",
+      "url": "https://polyhaven.com/a/CoffeeCart_01",
+      "file": "coffeeCart.glb"
+    },
+    {
+      "provider": "Poly Haven",
+      "url": "https://polyhaven.com/a/bar_chair_round_01",
+      "file": "barChair.glb"
+    },
+    {
+      "provider": "Poly Haven",
+      "url": "https://polyhaven.com/a/sofa_03",
+      "file": "sofaModern.glb",
+      "license": "CC0 1.0",
+      "triangles": 8004,
+      "widthMetresInScene": 2.404
+    },
+    {
+      "provider": "Poly Haven",
+      "url": "https://polyhaven.com/a/lebombo",
+      "file": "interior.hdr",
+      "license": "CC0 1.0"
+    }
+  ],
+  "audio": {
+    "file": "/audio/aircon-loop.wav",
+    "source": "Original synthesized filtered noise and 55Hz tone; not a recording of a specific device"
+  }
+}

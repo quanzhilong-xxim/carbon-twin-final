@@ -1,0 +1,23 @@
+{
+  "id": "denim_jacket",
+  "title": "Jeans Jacket #AgisoftClothesChallenge",
+  "author": "Sircher",
+  "authorUrl": "https://sketchfab.com/Sircher",
+  "source": "https://sketchfab.com/3d-models/jeans-jacket-agisoftclotheschallenge-4348be24475c45dd9a5bdf6e62ba7ebc",
+  "uid": "4348be24475c45dd9a5bdf6e62ba7ebc",
+  "license": "CC BY 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+  "verified": "2026-11-03",
+  "acquisition": "Reused the locally cached, downloadable Sketchfab-origin GLB after its author, model page, thumbnail and CC BY 4.0 license were verified.",
+  "archive": "https://huggingface.co/datasets/allenai/objaverse",
+  "assetFile": "/models/denim_jacket.glb",
+  "geometryModified": false,
+  "textures": "Original scan geometry and UVs retained. Runtime base-colour map removed for a uniform deep indigo fabric; the source normal map is retained.",
+  "runtimeModifications": "All jacket meshes use #1A2A42, roughness 0.9, metalness 0, normal scale 1.5, and double-sided rendering; cast/receive shadows enabled.",
+  "carbonScenario": {
+    "kgCO2ePerItem": 15.5,
+    "stageNote": "染色与纺织阶段占比极高",
+    "source": "Project owner's supplied estimate, not a verified product LCA or measurement of this model.",
+    "stagePercentagesVerified": false
+  }
+}

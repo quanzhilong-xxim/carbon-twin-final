@@ -1,0 +1,53 @@
+[
+  {
+    "id": "golden-hour",
+    "title": "File:20160904 - 07 - Montreal (Jean-Drapeau Park).webm",
+    "width": 3840,
+    "height": 2160,
+    "source": "https://commons.wikimedia.org/wiki/File:20160904_-_07_-_Montreal_(Jean-Drapeau_Park).webm",
+    "author": "Andre Carrotflower",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "modifications": "12-second excerpt from 00:16, resized to 1920px wide, silent H.264 MP4; poster extracted. Original 4K retained locally."
+  },
+  {
+    "id": "still-water",
+    "title": "File:Hatfield Forest Lake and visitor centre, Hatfield Broad Oak Essex England.webm",
+    "width": 3840,
+    "height": 2160,
+    "source": "https://commons.wikimedia.org/wiki/File:Hatfield_Forest_Lake_and_visitor_centre,_Hatfield_Broad_Oak_Essex_England.webm",
+    "author": "Acabashi",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "modifications": "12-second excerpt, resized to 1920px wide, silent H.264 MP4; poster extracted. Original 4K retained locally."
+  },
+  {
+    "id": "deep-woods",
+    "title": "File:Aerial views of a forest in Belarus.webm",
+    "width": 3840,
+    "height": 2160,
+    "source": "https://commons.wikimedia.org/wiki/File:Aerial_views_of_a_forest_in_Belarus.webm",
+    "author": "Vladislav Sanikovich",
+    "license": "CC BY 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+    "modifications": "12-second excerpt, resized to 1920px wide, silent H.264 MP4; poster extracted. Original 4K retained locally."
+  },
+  {
+    "id": "quiet-dawn",
+    "title": "File:Artemis II Full Moon and Sunrise at LC 39B - Timelapse (KSC-20260201-MH-JBS01-0001-Artemis II Full Moon Sunrise Timelapse-M18703).webm",
+    "width": 3840,
+    "height": 2160,
+    "source": "https://commons.wikimedia.org/wiki/File:Artemis_II_Full_Moon_and_Sunrise_at_LC_39B_-_Timelapse_(KSC-20260201-MH-JBS01-0001-Artemis_II_Full_Moon_Sunrise_Timelapse-M18703).webm",
+    "author": "NASA Kennedy Space Center",
+    "license": "Public domain",
+    "modifications": "12-second excerpt, resized to 1920px wide, silent H.264 MP4; poster extracted. Original 4K retained locally."
+  },
+  {
+    "id": "ambient",
+    "title": "SoundHelix Song 1",
+    "author": "T. Schürger / SoundHelix",
+    "source": "https://www.soundhelix.com/audio-examples",
+    "license": "Use permitted with credit to SoundHelix and the artist",
+    "modifications": "Quiet 48-second excerpt with fade-in and fade-out."
+  }
+]

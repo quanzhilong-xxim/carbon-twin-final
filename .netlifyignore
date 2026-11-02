@@ -1,0 +1,14 @@
+node_modules
+.next-dev
+.next-a2-dev
+.next-research
+.vercel
+work
+temp
+npm-cache
+outputs
+carbon-twin
+__tests__
+*.zip
+*.log
+.env.local
