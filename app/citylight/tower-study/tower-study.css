@@ -1,0 +1,8 @@
+body:has(.citylight-tower-study) .noise-overlay,body:has(.citylight-tower-study) .interaction-atmosphere{display:none}
+.citylight-tower-study .citylight-viewport{height:760px}
+.tower-study-canvas{width:100%;height:100%}
+.citylight-tower-study .lab-diagnostics{font-size:12px;font-variant-numeric:tabular-nums;line-height:1.8}
+.citylight-tower-study .lab-status{padding:20px;border-left:3px solid #cab58e;margin-top:24px;background:#253332;line-height:1.9}
+.citylight-tower-study .citylight-caption{padding:12px;background:#10212ae8}
+.citylight-tower-study aside a{display:inline-flex;align-items:center;font-size:12px;min-height:44px}
+@media(max-width:600px){.citylight-tower-study .citylight-viewport{height:550px}.citylight-tower-study .citylight-caption{position:static;flex-wrap:wrap}.citylight-tower-study .citylight-viewport{display:flex;flex-direction:column}.tower-study-canvas{flex:1;min-height:0}.citylight-tower-study .citylight-caption small{max-width:none}}

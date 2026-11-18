@@ -105,7 +105,7 @@ export default function ReportExport() {
       for(const [title,body] of [
        ['01 / 可复算','运行用电 = 输入功率 W × 等效日使用时长 h ÷ 1000。电力排放 = kWh × 排放因子。月量采用 30 日。三维能耗柱统一比例 1 m = 13.333 kWh / 日。光流是购电关系示意，不是实测电网。'],
        ['02 / 情景假设',`住宅空调输入：${energy.power} W，${energy.hours} h / 日，${energy.temperature}°C，教学档 ${energy.grade}。温度系数 max(0.75, 1+(26-温度)×0.035)，3 档另乘 1.18。这是可编辑教学情景，不是认证能效等级、热工模型或设备实测。`],
-       ['03 / 年份与地域',`${FACTORS.electricity.value} kg CO₂/kWh 为沿用的教学约定值，其原始发布年份与版本尚未核验，不是已核验的官方全国因子。使用者应替换为本项目核算边界、年份与地域匹配的因子。${FACTORS.electricity.url}`],
+       ['03 / 年份与地域',`${FACTORS.electricity.value} kg CO₂/kWh。${FACTORS.electricity.source}。${FACTORS.electricity.boundary}；正式核算应匹配项目地域、年份与用途。${FACTORS.electricity.url}`],
        ['04 / 科学与呈现','IPCC 结论用于解释累积排放与气候风险，不支持“关掉这台空调即刻改变窗外天气”的因果推断。室内色彩、花朵与粒子属于反馈艺术。刚体碰撞不等于软体或流体仿真。模型来源不等于碳排数据来源。'],
        ['05 / 使用范围','当前平台用于教育与方案比较，尚未接入校准电表、真实建筑 BIM、设备 EPD 与核验链，不能替代组织温室气体盘查、产品认证或商业审计。PDF 冻结导出时点输入；浏览器本地记录不跨设备同步。']
       ]){text(methods,'h2',title,'font-size:15px;color:#1D5E4C;margin-top:26px;');text(methods,'p',body,'font-size:12px;line-height:1.85;overflow-wrap:anywhere;');}

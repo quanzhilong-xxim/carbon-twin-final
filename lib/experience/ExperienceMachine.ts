@@ -3,7 +3,7 @@ export type ExperienceState = 'loading' | 'reveal' | 'approach' | 'orbit' | 'foc
 import {LANDMARKS,SPACES,spaceForBuilding,type SpaceObject} from './spaces';
 export type RoomObject = SpaceObject;
 export interface Experience { state: ExperienceState; building: number; selected: RoomObject | null; revision: number; view:'orbit'|'walk' }
-export type ExperienceEvent = { type: 'READY' | 'REVEALED' | 'CAMERA_DONE' | 'ENTER' | 'CLEAR' | 'EDIT' | 'FINISH_EDIT' | 'RETURN' | 'SCROLL' | 'SCROLL_DONE' | 'FAIL' | 'RETRY' } | { type: 'FOCUS'; building: number } | { type: 'SELECT'; object: RoomObject } | {type:'VIEW';view:'orbit'|'walk'};
+export type ExperienceEvent = { type: 'READY' | 'REVEALED' | 'CAMERA_DONE' | 'ENTER' | 'CLEAR' | 'EDIT' | 'FINISH_EDIT' | 'RETURN' | 'SCROLL' | 'SCROLL_DONE' | 'FAIL' | 'RETRY' } | { type: 'FOCUS' | 'FALLBACK_SPACE'; building: number } | { type: 'SELECT'; object: RoomObject } | {type:'VIEW';view:'orbit'|'walk'};
 interface Capability { orbit: boolean; pickBuilding: boolean; enter: boolean; inspect: boolean; layout: boolean; navigation: boolean }
 const caps = (orbit=false,pickBuilding=false,enter=false,inspect=false,layout=false,navigation=false): Capability => ({orbit,pickBuilding,enter,inspect,layout,navigation});
 export const CAPABILITIES: Readonly<Record<ExperienceState, Capability>> = {
@@ -14,6 +14,9 @@ export function experienceMachine(current: Experience, event: ExperienceEvent): 
   const transition=(state: ExperienceState,extra: Partial<Experience>={}): Experience=>({...current,...extra,state,revision:current.revision+1});
   if(event.type==='FAIL')return transition('fallback',{selected:null});
   if(event.type==='RETRY'&&current.state==='fallback')return transition('loading');
+  // No camera or WebGL is needed to compare the three operating ledgers.
+  // Never route this through FOCUS: that would wait for a missing camera.
+  if(event.type==='FALLBACK_SPACE'&&current.state==='fallback'&&LANDMARKS.some(id=>id===event.building))return transition('fallback',{building:event.building,selected:null,view:'orbit'});
   if(event.type==='READY'&&current.state==='loading')return transition('reveal');
   if(event.type==='REVEALED'&&current.state==='reveal')return transition('approach');
   if(event.type==='CAMERA_DONE') {
@@ -27,7 +30,10 @@ export function experienceMachine(current: Experience, event: ExperienceEvent): 
   if(event.type==='CLEAR'&&CAPABILITIES[current.state].inspect)return transition(current.state==='layout'?'layout':current.state==='fallback'?'fallback':'room',{selected:null});
   if(event.type==='EDIT'&&current.view==='orbit'&&current.building===0&&['room','inspecting'].includes(current.state))return transition('layout',{selected:'sofa'});
   if(event.type==='FINISH_EDIT'&&current.state==='layout')return transition('room',{selected:null});
-  if(event.type==='RETURN'&&CAPABILITIES[current.state].navigation&&current.state!=='fallback')return transition('returning',{selected:null});
+  // A static/fallback view still needs an escape route. It has no camera
+  // transition to wait for, so return directly to the orbit state.
+  if(event.type==='RETURN'&&current.state==='fallback')return transition('orbit',{selected:null});
+  if(event.type==='RETURN'&&CAPABILITIES[current.state].navigation)return transition('returning',{selected:null});
   if(event.type==='SCROLL'&&current.state==='orbit')return transition('scrolling',{building:0,selected:null});
   if(event.type==='SCROLL_DONE'&&current.state==='scrolling')return transition('room');
   return current;

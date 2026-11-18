@@ -1,0 +1,6 @@
+body:has(.citylight-material-lab) .interaction-atmosphere,body:has(.citylight-material-lab) .noise-overlay{display:none}
+.citylight-material-lab .citylight-viewport{height:680px}
+.citylight-material-lab .lab-status{padding:16px;background:#253332;border-left:3px solid #cabb97;line-height:1.8;color:#e6dfcf;margin:24px 0}
+.citylight-material-lab .lab-diagnostics{font-size:12px;font-variant-numeric:tabular-nums;line-height:1.8;color:#d0dbcf;overflow-wrap:anywhere}
+.citylight-material-lab .citylight-caption{background:#0c171be8;padding:12px;align-items:center}
+@media(max-width:600px){.citylight-material-lab .citylight-viewport{height:460px}.citylight-material-lab .citylight-caption{position:static;flex-wrap:wrap}.citylight-material-lab .citylight-viewport{display:flex;flex-direction:column}.citylight-material-lab .lab-canvas{flex:1;min-height:0}}

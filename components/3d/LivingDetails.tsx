@@ -9,11 +9,11 @@ import {useTwinStore} from '@/lib/experience/store';
 import {useUIStore} from '@/lib/stores/UIStore';
 
 /** Bounded GPU billboards: motion is a visual metaphor, not a CFD solver. */
-export function Steam({position,on,tint='#e8e4d9',strength=1}:{position:[number,number,number];on:boolean;tint?:string;strength?:number}){
+export function Steam({position,on,tint='#e8e4d9',strength=1,paused=false}:{position:[number,number,number];on:boolean;tint?:string;strength?:number;paused?:boolean}){
  const budget=useTwinStore(s=>s.particles),reduced=useUIStore(s=>s.reduced);
  const geometry=useMemo(()=>{const g=new THREE.BufferGeometry(),n=Math.max(0,Math.min(64,budget)),p=new Float32Array(n*3),seeds=new Float32Array(n);for(let i=0;i<n;i++)seeds[i]=i*.6180339887%1;g.setAttribute('position',new THREE.BufferAttribute(p,3));g.setAttribute('seed',new THREE.BufferAttribute(seeds,1));return g;},[budget]);
  const material=useMemo(()=>new THREE.ShaderMaterial({transparent:true,depthWrite:false,uniforms:{uTime:{value:0},uOn:{value:0},uColor:{value:new THREE.Color(tint)}},vertexShader:`attribute float seed;uniform float uTime;uniform float uOn;varying float alpha;void main(){float age=fract(seed+uTime*.16);vec3 p=position;p.x=sin(seed*60.+age*5.)*(.025+age*.12);p.z=cos(seed*32.+age*3.)*age*.13;p.y=age*.95;alpha=sin(age*3.14159)*.17*uOn;vec4 mv=modelViewMatrix*vec4(p,1.);gl_PointSize=min(48.,(14.+age*30.)/-mv.z);gl_Position=projectionMatrix*mv;}`,fragmentShader:`uniform vec3 uColor;varying float alpha;void main(){vec2 q=gl_PointCoord-.5;float wisps=.72+.28*sin(q.x*26.+q.y*13.);gl_FragColor=vec4(uColor,exp(-dot(q,q)*14.)*alpha*wisps);}`}),[tint]);
- useFrame(({clock},dt)=>{material.uniforms.uTime.value=clock.elapsedTime;material.uniforms.uOn.value=THREE.MathUtils.damp(material.uniforms.uOn.value,on&&!reduced?strength:0,3,dt);});
+ useFrame((_,dt)=>{if(!paused&&!reduced)material.uniforms.uTime.value+=Math.min(dt,.05);material.uniforms.uOn.value=paused?(on&&!reduced?strength:0):THREE.MathUtils.damp(material.uniforms.uOn.value,on&&!reduced?strength:0,3,Math.min(dt,.05));});
  useEffect(()=>()=>geometry.dispose(),[geometry]);useEffect(()=>()=>material.dispose(),[material]);
  return <points geometry={geometry} material={material} position={position} frustumCulled={false} dispose={null}/>;
 }

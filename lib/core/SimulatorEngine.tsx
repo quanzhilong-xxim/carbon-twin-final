@@ -9,7 +9,7 @@ import { dataHub } from '@/lib/stores/internal/dataHub';
 import { saveSnapshot } from '@/lib/storage/SnapshotDB';
 import { recordLearning } from '@/lib/storage/LearningDB';
 
-interface SimulatorContext { inputs: Activity; update: (key: keyof Activity, value: number) => void; error: string | null }
+interface SimulatorContext { inputs: Activity; update: (key: keyof Activity, value: number) => void; replace: (activity: Activity) => boolean; error: string | null }
 const Context = createContext<SimulatorContext | null>(null);
 export function SimulatorProvider({ children }: { children: ReactNode }) {
   const controller = useCarbonWorker();
@@ -47,6 +47,18 @@ export function SimulatorProvider({ children }: { children: ReactNode }) {
     setInputs(checked.data);
     void recordLearning({ type: 'slider', activity: checked.data, field: key }).catch(() => setError('活动调整已计算，但浏览器未能保存这次学习记录。'));
   }, [inputs]);
-  return <Context.Provider value={{ inputs, update, error }}>{children}</Context.Provider>;
+  // A scenario is one transaction: calling update three times from one event
+  // would otherwise reuse the same rendered inputs and lose two of the fields.
+  const replace = useCallback((activity: Activity) => {
+    if (useUIStore.getState().networkBusy) return false;
+    const checked = activitySchema.safeParse(activity);
+    if (!checked.success) return false;
+    if (JSON.stringify(checked.data) === JSON.stringify(inputs)) return true;
+    setChartPending(true);
+    setInputs(checked.data);
+    void recordLearning({ type: 'module', module: 'simulation' }).catch(() => setError('情景已应用，但浏览器未能保存这次学习记录。'));
+    return true;
+  }, [inputs]);
+  return <Context.Provider value={{ inputs, update, replace, error }}>{children}</Context.Provider>;
 }
 export function useSimulator() { const context = useContext(Context); if (!context) throw new Error('SimulatorProvider required'); return context; }

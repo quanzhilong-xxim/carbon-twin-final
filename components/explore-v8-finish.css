@@ -1,0 +1,99 @@
+/* Scoped final composition. The retained architecture and other pages use their existing styles. */
+.explore-active .site-header{border-radius:4px;border-bottom:1px solid #aac59c45}
+.explore-active .site-header .navbar-glass{border-radius:4px;background:#11241bcc;border-color:#c1d9ad36}
+.explore-active .site-header .nav-item{border-radius:2px;transition:transform .25s cubic-bezier(.2,.8,.2,1),background .25s}
+.explore-active .site-header .nav-item.active{background:#b9db9e;color:#12251a;box-shadow:inset 0 -3px #80a66b}
+.explore-active .site-header .nav-item:hover .nav-icon{transform:translateY(-2px)}
+.explore-active .site-header .nav-icon{transition:transform .25s}
+.explore-active .header-utilities button{border-radius:4px}
+.ct-v7-explore #home .research-grid{grid-template-columns:minmax(310px,.75fr) minmax(0,1.3fr);align-items:center;gap:32px}
+.ct-v7-explore #home .city-observatory{height:auto;min-height:0;overflow:visible;align-self:center}
+.ct-v7-explore #home .city-topline{position:relative;inset:auto;padding:14px 20px 0;font-size:10px}
+.ct-v7-explore #home .city-view-choice{padding:0 20px 6px}
+.ct-v7-explore #home .city-view-choice a,.ct-v7-explore #home .city-view-choice button{font-size:11px;min-height:28px}
+.ct-v7-explore #home .city-formation{height:auto;min-height:0;overflow:hidden}
+.ct-v7-explore #home .formation-v7 .dust-story-heading{min-height:0;gap:6px;padding:12px 20px 0}
+.ct-v7-explore #home .formation-v7 .dust-story-heading>p{font-size:12px;line-height:1.7;max-width:46ch;min-height:0}
+.ct-v7-explore #home .city-formation .scene-stage{height:340px;min-height:340px;flex:none}
+.ct-v7-explore #home .formation-v7 .formation-controls{margin:0 12px 12px;padding:12px;background:#10221bf5}
+.ct-v7-explore #home .dust-story-steps{margin-bottom:10px}
+.ct-v7-explore #home .formation-v7 .dust-story-steps button{min-height:40px;font-size:11px}
+.ct-v7-explore #home .formation-controls input{min-height:24px;margin-bottom:4px}
+.ct-v7-explore #home .dust-playback{gap:6px}
+.ct-v7-explore #home .dust-playback button{min-height:36px;padding:6px 10px;font-size:12px}
+.ct-v7-explore #home .dust-playback button:first-child{color:#14251b;background:#c4dba9}
+.ct-v7-explore #home .formation-options{margin-top:10px;border-top:1px solid #b3c99b30;padding-top:8px}
+.ct-v7-explore #home .formation-options summary{display:flex;justify-content:space-between;gap:12px;cursor:pointer;color:#d1dfc7;font-size:11px;min-height:28px;align-items:center;list-style:none}
+.ct-v7-explore #home .formation-options summary span{color:#aec99a}
+.ct-v7-explore #home .formation-options .city-time-controls{display:flex;align-items:center;flex-wrap:wrap;gap:7px}
+.ct-v7-explore #home .formation-options .city-time-controls>span{margin-right:auto;font-size:12px}
+.ct-v7-explore #home .formation-options .city-time-controls button{min-height:36px;padding:5px 8px}
+.ct-v7-explore #home .dust-method-note{font-size:10px;line-height:1.7;margin-top:8px}
+.ct-v7-explore #home .city-observatory>figcaption{display:none}
+.ct-v7-explore .role-preview-copy{background:none}
+.ct-v7-explore .role-preview-image{mix-blend-mode:normal;z-index:-1;opacity:1;background-size:auto 93%;background-position:47% bottom}
+.ct-v7-explore .role-preview-shade{z-index:0;background:linear-gradient(90deg,transparent 0%,#0a1a0d08 35%,#0a1a0ddd 57%,#0a1a0df5 100%);pointer-events:none}
+.ct-v7-explore .role-preview-top,.ct-v7-explore .role-preview-copy{position:relative;z-index:1}
+.ct-v7-explore .role-preview-top{inset:auto;padding:16px 18px 0;min-height:44px}
+.ct-v7-explore .role-preview-copy{min-height:290px;padding-top:12px;padding-bottom:24px}
+.ct-v7-explore .role-preview-backdrop{filter:saturate(.72);opacity:.65}
+.ct-v7-explore .role-preview-copy small{font-size:10px}
+.ct-v7-explore .role-preview-copy em{font-size:13px;line-height:1.8}
+.ct-v7-explore .city-atlas-copy small{font-size:10px}
+.ct-v7-explore .city-atlas-copy em{font-size:12px}
+.ct-v7-explore .city-atlas-note{font-size:11px}
+.ct-v7-explore .explore-handoff{display:grid;grid-template-columns:1fr 1.15fr;gap:40px;align-items:center;padding:40px 4vw;isolation:isolate}
+.ct-v7-explore .explore-handoff:after{display:none}
+.ct-v7-explore .explore-handoff .evidence-number{display:none}
+.ct-v7-explore .explore-handoff .evidence-copy{padding:0;max-width:none}
+.ct-v7-explore .explore-evidence-visual{position:relative;isolation:isolate;min-height:330px;border:1px solid #cbba7b5c;overflow:hidden;background:#14281c url('/media/deep-woods.jpg') center/cover}
+.ct-v7-explore .explore-evidence-visual:after{content:'';position:absolute;inset:0;background:linear-gradient(0deg,#0b2119ed,transparent 85%);z-index:-1}
+.ct-v7-explore .explore-evidence-visual video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;opacity:.5}
+.ct-v7-explore .evidence-orbit{position:relative;display:grid;place-items:center;height:180px;margin:24px auto 0;width:180px;color:#eed293}
+.ct-v7-explore .evidence-orbit i{position:absolute;inset:14%;border:1px solid #d5bc80b0;border-radius:50%;transform:rotateX(58deg) rotateZ(24deg);animation:evidence-turn 22s linear infinite}
+.ct-v7-explore .evidence-orbit i:nth-child(2){transform:rotateY(65deg) rotateZ(40deg);animation-direction:reverse}
+.ct-v7-explore .evidence-orbit i:nth-child(3){transform:rotateX(20deg) rotateY(45deg);animation-duration:34s}
+.ct-v7-explore .evidence-orbit>span{font:italic 50px Georgia,serif;text-shadow:0 0 28px #c1b079}
+.ct-v7-explore .evidence-visual-label{position:relative;display:grid;gap:12px;padding:0 24px 26px;color:#f1edda}
+.ct-v7-explore .evidence-visual-label>span{font:10px ui-monospace,monospace;color:#d7c185}
+.ct-v7-explore .evidence-visual-label>b{font:400 27px/1.5 var(--font-instrument),Georgia,serif}
+.ct-v7-explore .evidence-media-toggle{position:absolute;right:16px;top:16px;width:38px;height:38px;display:grid;place-items:center;border:1px solid #cfca9959;background:#10251ada;color:#e8ddba;border-radius:4px}
+.ct-v7-explore .explore-evidence-visual>small{display:block;padding:0 24px 15px;font-size:10px;color:#bfcdba}
+.ct-v7-explore .explore-evidence-visual[data-paused=true] .evidence-orbit i{animation-play-state:paused}
+.ct-v7-explore .explore-notebook{max-width:1600px;margin:0 auto;padding:48px 4vw 64px;display:grid;grid-template-columns:.8fr 1.2fr;gap:64px;align-items:start}
+.ct-v7-explore .notebook-intro .explore-kicker{display:flex;gap:8px;align-items:center}
+.ct-v7-explore .notebook-intro h2{font:400 clamp(32px,3.5vw,48px)/1.25 var(--font-instrument),Georgia,serif;color:#eef0df;margin:16px 0}
+.ct-v7-explore .notebook-intro h2 i{color:#b7d49a}
+.ct-v7-explore .notebook-intro p{font-size:14px;line-height:1.9;color:#b8c9b6;max-width:32ch}
+.ct-v7-explore .notebook-reader{border-top:1px solid #c4b1756b;border-bottom:1px solid #c4b1753d;padding:16px 0}
+.ct-v7-explore .notebook-tabs{display:flex;flex-wrap:wrap;gap:6px}
+.ct-v7-explore .notebook-tabs button{padding:8px 10px;border:1px solid #a5b8993d;color:#c7d6c0;font-size:11px;border-radius:2px;min-height:38px}
+.ct-v7-explore .notebook-tabs button[aria-pressed=true]{color:#17261b;background:#c5d6a8;border-color:#c5d6a8}
+.ct-v7-explore .notebook-reader blockquote{font:400 clamp(23px,2.4vw,33px)/1.75 var(--font-instrument),Georgia,serif;color:#ece7cf;min-height:170px;margin:18px 0 12px;display:flex;gap:12px;align-items:center;animation:note-arrive .4s cubic-bezier(.2,.7,.2,1)}
+.ct-v7-explore .notebook-reader blockquote>span{align-self:flex-start;font:italic 76px Georgia,serif;color:#9eab77}
+.ct-v7-explore .notebook-controls{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.ct-v7-explore .notebook-controls small{font:10px ui-monospace,monospace;color:#c5c49e}
+.ct-v7-explore .notebook-controls>div{display:flex;gap:8px}
+.ct-v7-explore .notebook-controls button{width:40px;height:40px;border:1px solid #a9bd936b;display:grid;place-items:center;color:#e7e5c7;transition:transform .2s}
+.ct-v7-explore .notebook-controls button:hover{transform:translateX(3px);background:#b8cb991b}
+.ct-v7-explore .notebook-all{margin-top:16px;border-top:1px solid #b9c59826;padding-top:14px;color:#bfceba;font-size:12px;line-height:1.9}
+.ct-v7-explore .notebook-all summary{cursor:pointer;min-height:30px}
+.ct-v7-explore .notebook-all ol{padding-left:24px;columns:2;column-gap:32px}
+.ct-v7-explore .notebook-all li{break-inside:avoid;margin-bottom:12px}
+.ct-v7-explore .scope-flips .scope-face{padding:24px}
+.ct-v7-explore .scope-flips .scope-face p{font-size:15px;line-height:1.8}
+.ct-v7-explore .scope-flips .scope-back{background:#e5e8d8;color:#163326}
+.ct-v7-explore .scope-flips .scope-back p{color:inherit}
+.ct-v7-explore .scope-flips .scope-back small{color:#36553b}
+.ct-v7-explore button:focus-visible,.ct-v7-explore a:focus-visible,.ct-v7-explore summary:focus-visible{outline:2px solid #d3dcad;outline-offset:4px}
+@keyframes note-arrive{from{transform:translateY(12px);opacity:.3}to{transform:translateY(0);opacity:1}}
+@keyframes evidence-turn{to{rotate:360deg}}
+@media(max-width:1000px){.ct-v7-explore #home .research-grid{grid-template-columns:1fr}.ct-v7-explore #home .city-formation .scene-stage{height:400px;min-height:400px}.ct-v7-explore #home .city-observatory{width:100%}.ct-v7-explore .explore-notebook{gap:32px}.ct-v7-explore .role-preview-copy{min-height:245px}}
+@media(max-width:760px){.ct-v7-explore #home .research-grid{display:flex}.ct-v7-explore #home .city-formation .scene-stage{height:310px;min-height:310px}.ct-v7-explore #home .formation-v7 .dust-story-heading{grid-template-columns:1fr auto;padding-inline:14px}.ct-v7-explore #home .formation-v7 .dust-story-heading>span{font-size:8px}.ct-v7-explore #home .formation-v7 .dust-story-heading>b{font-size:14px}.ct-v7-explore #home .formation-v7 .dust-story-heading>p{grid-column:1/-1;font-size:12px}.ct-v7-explore #home .city-topline{font-size:9px;padding-inline:14px}.ct-v7-explore #home .formation-v7 .formation-controls{padding:12px}.ct-v7-explore #home .dust-playback button{padding-inline:8px;font-size:11px}.ct-v7-explore .explore-handoff{grid-template-columns:1fr;padding:24px;gap:28px}.ct-v7-explore .explore-evidence-visual{min-height:300px}.ct-v7-explore .explore-notebook{grid-template-columns:1fr;padding:32px 6vw 48px;gap:24px}.ct-v7-explore .notebook-reader blockquote{font-size:25px;min-height:150px}.ct-v7-explore .notebook-all ol{columns:1}.ct-v7-explore .role-preview-model{inset:32px 51% 0 0;width:50%}.ct-v7-explore .role-preview-copy{min-height:245px}.ct-v7-explore .role-preview-copy strong{font-size:22px}.ct-v7-explore .city-atlas-copy em{font-size:12px}.ct-v7-explore .city-atlas-card{min-height:245px}}
+@media(prefers-reduced-motion:reduce){.ct-v7-explore .notebook-reader blockquote,.ct-v7-explore .evidence-orbit i{animation:none}.explore-active .site-header .nav-item,.ct-v7-explore .notebook-controls button{transition:none}}
+.ct-v7-explore #home:has(.city-formation[data-theme="1"]) .city-observatory{background-image:linear-gradient(180deg,#07140f78 0%,#07140f12 38%,#07140fa8 100%),url('/media/still-water.jpg')}
+.ct-v7-explore #home:has(.city-formation[data-theme="2"]) .city-observatory{background-image:linear-gradient(180deg,#07140f78 0%,#07140f12 38%,#07140fa8 100%),url('/media/golden-hour.jpg');background-position:center 47%}
+.ct-v7-explore #home:has(.city-formation[data-theme="3"]) .city-observatory{background-image:linear-gradient(180deg,#07140f78 0%,#07140f12 38%,#07140fa8 100%),url('/media/deep-woods.jpg')}
+.ct-v7-explore #home:has(.city-formation[data-theme="4"]) .city-observatory{background-image:linear-gradient(180deg,#07140f78 0%,#07140f12 38%,#07140fa8 100%),url('/media/golden-hour.jpg');background-position:center 62%}
+.ct-v7-explore #home:has(.city-formation[data-theme="5"]) .city-observatory{background-image:linear-gradient(180deg,#07140f78 0%,#07140f12 38%,#07140fa8 100%),url('/media/still-water.jpg');background-position:center 44%}
+.ct-v7-explore #home:has(.city-formation[data-journey-stage="tree"]) .city-observatory{background-image:linear-gradient(180deg,#07140f20 0%,#07140f08 38%,#07140f45 100%),url('/media/deep-woods.jpg');background-position:center 64%}

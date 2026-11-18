@@ -13,5 +13,9 @@ export function useVisualQuality() {
     const weak = navigator.hardwareConcurrency > 0 && navigator.hardwareConcurrency < 4;
     useQualityStore.setState({ quality: compact || weak ? 'lite' : 'full', reason: compact ? '移动设备优先保留计算与对话' : weak ? '设备采用轻量渲染' : '' });
   }, []);
-  return { quality, reduced, webgl: quality === 'full' && !reduced };
+  // `lite` describes a lower-cost renderer, not a two-dimensional fallback.
+  // Keep the real exhibit available on compact/coarse-pointer devices and let
+  // the stage choose a smaller DPR or recover to its documented fallback when
+  // the browser cannot create a WebGL context.
+  return { quality, reduced, webgl: quality !== 'checking' };
 }

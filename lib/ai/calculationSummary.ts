@@ -8,5 +8,5 @@ export function roomCalculationSummary(totals: ReturnType<typeof calculateSpace>
   return ['服务端计算对照（非 AI 生成，30 天教学情景）',
     ...(device ? [line(OBJECTS[device.id].name, device.kWh)] : []),
     line('整个房间（含照明及启用设备）', totals.daily),
-    '仅为购电运行排放；0.581 kg CO₂/kWh 为原始版本待核验的教学约定值。'].join('\n');
+    `仅为购电运行排放；${FACTORS.electricity.value} kg CO₂/kWh，${FACTORS.electricity.source}。${FACTORS.electricity.boundary}。`].join('\n');
 }

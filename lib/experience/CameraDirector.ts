@@ -1,6 +1,11 @@
 import type {Experience} from './ExperienceMachine';
 export interface CameraPose {position:[number,number,number];target:[number,number,number]}
-export const ORBIT_POSE:CameraPose={position:[36,31,44],target:[0,3,-4]};
+export interface CameraSnapshot extends CameraPose {fov:number}
+export const ORBIT_POSE:CameraPose={position:[43,32,60],target:[0,9,-28]};
+export type CityShot='overview'|'waterfront';
+export function cityShotPose(shot:CityShot):CameraPose {
+ return shot==='waterfront'?{position:[36,12,30],target:[-6,7,-26]}:ORBIT_POSE;
+}
 export function buildingPosition(id:number):[number,number,number]{if(id===0)return [0,0,0];const row=Math.floor((id-1)/8),col=(id-1)%8;return [(col-3.5)*13,0,-18-row*13];}
 export function cameraCue(experience:Experience):CameraPose|null {
  const [x,,z]=buildingPosition(experience.building);

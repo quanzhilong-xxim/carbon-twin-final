@@ -1,0 +1,22 @@
+{
+  "date": "2026-11-03T12:38:35.422Z",
+  "cwd": "C:\\Users\\23242\\Desktop\\CarbonTwin_App",
+  "node": "v26.13.0",
+  "playwright": "1.64.1",
+  "hashes": {
+    "package.json": "d263845976d2fad1b36e8c45a7c9b7d333ca0b6c5957454c3a5e44499a0b1933",
+    "package-lock.json": "fbe7b69989227ad3995b93ccd5b8bccde303408c2197f815a96c1f287a420228",
+    "tsconfig.json": "8a6c713763ceccafebfd2581c0974ed864cfe71c8afd4cba9884d53e7edd6b41",
+    "next.config.mjs": "c9476a6e77f8d7872176cdbd8dd57f8f1e660e40f09f52b12be98262459cce83",
+    "playwright.a1.config.ts": "2e59690bcfd15021dd552aabf9f7ec460301adf187c962f1269d57b435452eed"
+  },
+  "originalCache": "C:\\Users\\23242\\AppData\\Local\\ms-playwright",
+  "originalCacheEntries": [
+    ".links",
+    "chromium-1248",
+    "chromium_headless_shell-1248",
+    "ffmpeg-1013",
+    "winldd-1007"
+  ],
+  "processBrowserPath": null
+}

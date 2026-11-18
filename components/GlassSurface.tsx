@@ -1,6 +1,5 @@
 'use client';
 
-import { Glass } from '@samasante/liquid-glass';
 import { motion, useMotionValue, useReducedMotion, useSpring } from 'framer-motion';
 import { useEffect, useRef, type ReactNode } from 'react';
 import { useUIStore } from '@/lib/stores/UIStore';
@@ -44,8 +43,9 @@ export default function GlassSurface({ children, className = '', contentClassNam
       onPointerLeave={() => { cancelAnimationFrame(frame.current); frame.current = 0; rx.set(0); ry.set(0); }}>
       <div className="glass-blur" aria-hidden="true" />
       <div className="glass-optical-layer" aria-hidden="true">
-        <Glass className="glass-refraction" style={{ display: 'block', width: '100%', height: '100%', borderRadius: 'inherit' }}
-          optics={{ strength: .022, depth: .32, curvature: .55, dispersion: .15, specular: 1, frost: 0, sheen: .3, glow: .08 }} />
+        {/* Keep optical decoration independent of measured, transformed bounds.
+            A resize-driven lens here fed WebKit's layout observer during tilt. */}
+        <div className="glass-refraction" />
       </div>
       <div className={`glass-content ${contentClassName}`} style={{ display }}>{children}</div>
     </motion.div>

@@ -1,5 +1,4 @@
 'use client';
-import { SessionProvider } from 'next-auth/react';
 import { useEffect } from 'react';
 import { MotionConfig } from 'framer-motion';
 import type { ReactNode } from 'react';
@@ -12,5 +11,5 @@ function MotionBoundary({ children }: { children: ReactNode }) {
   return <MotionConfig reducedMotion={reduced ? 'always' : 'never'}>{children}</MotionConfig>;
 }
 export default function Providers({ children }: { children: ReactNode }) {
-  return <SessionProvider session={null} refetchOnWindowFocus={false}><SimulatorProvider><ThemeBridge /><MotionBoundary>{children}</MotionBoundary></SimulatorProvider></SessionProvider>;
+  return <SimulatorProvider><ThemeBridge /><MotionBoundary>{children}</MotionBoundary></SimulatorProvider>;
 }

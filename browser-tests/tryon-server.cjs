@@ -1,0 +1,28 @@
+// Free server tests: isolated env and provider stubs, never loads .env.local.
+const fs=require('node:fs'),path=require('node:path'),vm=require('node:vm'),assert=require('node:assert/strict');
+const ts=require('typescript'),root=path.resolve(__dirname,'..');
+const output=process.env.TRYON_SERVER_OUTPUT||path.join(root,'work/tryon-server-tests',Date.now().toString());fs.mkdirSync(output,{recursive:true});
+const results=[];
+function load(file,env,dependencies){const mod={exports:{}};const source=ts.transpileModule(fs.readFileSync(path.join(root,file),'utf8'),{compilerOptions:{module:1,target:9,esModuleInterop:true}}).outputText;vm.runInNewContext(source,{exports:mod.exports,require:n=>Object.hasOwn(dependencies,n)?dependencies[n]:require(n),process:{env,cwd:()=>output},Response,Request,URL,setTimeout,clearTimeout,console:{error(){}}},{filename:file});return mod.exports}
+const policy={TRY_ON_MODEL:'lucy-vton-3.6',TRY_ON_TOKEN_SECONDS:10,TRY_ON_SERVER_SECONDS:10,TRY_ON_BILLING_ACK:'standard-2-credits-per-second-server-cap-10s'};
+const env={DECART_API_KEY:'test-not-a-real-key',DECART_TRYON_ENABLED:'true',DECART_TRYON_BILLING_ACK:policy.TRY_ON_BILLING_ACK,DECART_TRYON_APPROVAL_ID:'test-approval-not-a-secret-0001'};
+const makeRequest=(body={consent:true,targetSeconds:3},origin='http://localhost:3020')=>new Request('http://localhost:3020/api/decart/token',{method:'POST',headers:{origin,'Content-Type':'application/json'},body:JSON.stringify(body)});
+async function check(label,fn){try{await fn();results.push({label,status:'pass'})}catch(e){results.push({label,status:'fail',error:e.message})}console.log(label,results.at(-1).status)}
+function fixture(options={}){let claimed=false;const calls={account:0,token:0,options:null};const approval={tryOnPolicy:()=>({enabled:options.enabled!==false}),claimTryOnApproval:async()=>{if(claimed)return false;claimed=true;return true}};
+const route=load('app/api/decart-token/route.ts',env,{'@/lib/server/decartApproval':approval,'@/lib/tryon/policy':policy,'@/lib/server/decartAccount':{minimumCredits:()=>null,fetchDecartAccount:async p=>{calls.account++;return {body:p==='/credits'?{credits:options.credits??930}:{active:options.active??0,remaining:1}}}},'@decartai/sdk':{createDecartClient:()=>({tokens:{create:async params=>{calls.token++;calls.options=params;return {apiKey:'test-token-only',expiresAt:'2099-01-01',constraints:{realtime:{maxSessionDuration:options.echoCap??10}}}}}})}});return {POST:route.POST,calls}}
+(async()=>{
+await check('默认关闭：不联系任何上游',async()=>{const f=fixture({enabled:false});assert.equal((await f.POST(makeRequest())).status,403);assert.equal(f.calls.account+f.calls.token,0)});
+await check('来源不符：拒绝且不上游',async()=>{const f=fixture();assert.equal((await f.POST(makeRequest({},'https://example.invalid'))).status,403);assert.equal(f.calls.account+f.calls.token,0)});
+await check('缺少同意与越界时长：拒绝',async()=>{for(const body of [{consent:false,targetSeconds:3},{consent:true,targetSeconds:6},{consent:true,targetSeconds:2},{consent:true,targetSeconds:3.5}]){const f=fixture();assert.equal((await f.POST(makeRequest(body))).status,400);assert.equal(f.calls.token,0)}});
+await check('同时申请两次仅签发一次',async()=>{const f=fixture();const responses=await Promise.all([f.POST(makeRequest()),f.POST(makeRequest())]);assert.deepEqual(responses.map(r=>r.status).sort(),[200,409]);assert.equal(f.calls.token,1)});
+await check('余额不足20 credits拒绝',async()=>{const f=fixture({credits:19});assert.equal((await f.POST(makeRequest())).status,402);assert.equal(f.calls.token,0)});
+await check('有活动会话拒绝新会话',async()=>{const f=fixture({active:1});assert.equal((await f.POST(makeRequest())).status,409);assert.equal(f.calls.token,0)});
+await check('令牌3.6限定、10秒TTL/服务端上限、正确origin',async()=>{const f=fixture();assert.equal((await f.POST(makeRequest())).status,200);assert.deepEqual(JSON.parse(JSON.stringify(f.calls.options)),{expiresIn:10,allowedModels:['lucy-vton-3.6'],allowedOrigins:['http://localhost:3020'],constraints:{realtime:{maxSessionDuration:10}}})});
+await check('上游未确认10秒上限，不向浏览器交付令牌',async()=>{const f=fixture({echoCap:900});const r=await f.POST(makeRequest());assert.equal(r.status,502);assert.equal((await r.json()).apiKey,undefined)});
+const approval=load('lib/server/decartApproval.ts',env,{'@/lib/tryon/policy':policy,'@netlify/blobs':{getStore(){throw Error('No Netlify network allowed in local tests')}}});
+await check('本地授权原子认领一次，跨模块重复仍拒绝',async()=>{const r=await Promise.all([approval.claimTryOnApproval(),approval.claimTryOnApproval()]);assert.deepEqual(r.sort(),[false,true]);assert.equal(await approval.claimTryOnApproval(),false)});
+await check('缺少billing确认时默认关闭',async()=>{const a=load('lib/server/decartApproval.ts',{...env,DECART_TRYON_BILLING_ACK:''},{'@/lib/tryon/policy':policy,'@netlify/blobs':{}});assert.equal(a.tryOnPolicy().enabled,false);assert.equal(await a.claimTryOnApproval(),false)});
+let occupied=false;const blob=load('lib/server/decartApproval.ts',{...env,NETLIFY:'true'},{'@/lib/tryon/policy':policy,'@netlify/blobs':{getStore:opts=>{assert.equal(opts.consistency,'strong');return {set:async(key,value,options)=>{assert.equal(options.onlyIfNew,true);const modified=!occupied;occupied=true;return {modified}}}}}});
+await check('Netlify分布式认领调用强一致onlyIfNew（模拟存储）',async()=>{assert.deepEqual((await Promise.all([blob.claimTryOnApproval(),blob.claimTryOnApproval()])).sort(),[false,true])});
+fs.writeFileSync(path.join(output,'server-results.json'),JSON.stringify({kind:'FREE isolated provider/storage tests',realProviderRequests:0,results},null,2));if(results.some(r=>r.status==='fail'))process.exitCode=1;
+})();

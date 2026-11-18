@@ -1,4 +1,6 @@
 'use client';
+import { SceneResources } from '@/lib/three/scene-assets';
+import { SceneFrameReady, SceneLifecycle, useSceneRuntime } from '@/lib/three/scene-runtime';
 import { Bloom, EffectComposer } from '@react-three/postprocessing';
 import { visualDynamics } from '@/lib/visualDynamics';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
@@ -84,15 +86,18 @@ function Field({city,onSlow}:{city:boolean;onSlow:()=>void}){
   });
   return <><mesh geometry={resources.plane} material={resources.skyMaterial} renderOrder={-10} frustumCulled={false} dispose={null}/><ambientLight intensity={1.2}/><directionalLight position={[4,12,6]} intensity={2} color="#dcffe5"/><pointLight position={[0,10,0]} intensity={45} color="#9aff9a"/><instancedMesh ref={mesh} args={[resources.box,resources.material,resources.count]} frustumCulled={false} dispose={null}/><lineSegments geometry={resources.rays} material={resources.rayMaterial} frustumCulled={false} dispose={null}/><points geometry={resources.dust} material={resources.dustMaterial} frustumCulled={false} dispose={null}/><mesh position={[0,-.25,0]} geometry={resources.ground} material={resources.groundMaterial} dispose={null}/><lineSegments geometry={resources.branches} material={resources.branchMaterial} dispose={null}/><primitive object={resources.pathObject} dispose={null}/></>;
 }
-class Boundary extends Component<{children:ReactNode;fallback:ReactNode},{failed:boolean}>{state={failed:false};static getDerivedStateFromError(){return{failed:true};}render(){return this.state.failed?this.props.fallback:this.props.children;}}
-export default function EcologicalScene({city=false}:{city?:boolean}){
-  const {webgl,reduced}=useVisualQuality(),root=useRef<HTMLDivElement>(null),cleanup=useRef<(()=>void)|null>(null);const [mode,setMode]=useState<'live'|'lost'>('live'),[retry,setRetry]=useState(0),[visible,setVisible]=useState(true),[bloom,setBloom]=useState(true);
-  const annual=useDataStore(s=>s.emissions?.annual??ECOLOGY_BASELINE),e=ecologyState(annual),slow=useCallback(()=>{if(bloom)setBloom(false);else lowerVisualQuality('持续帧率低于30，已启用2D后备');},[bloom]);
-  useEffect(()=>{const o=new IntersectionObserver(([v])=>setVisible(v.isIntersecting));if(root.current)o.observe(root.current);const visibility=()=>setVisible(!document.hidden);document.addEventListener('visibilitychange',visibility);return()=>{o.disconnect();document.removeEventListener('visibilitychange',visibility);cleanup.current?.();};},[]);
-  const poster=city?<div className="city-poster" role="img" aria-label="绿色点阵城市静态后备海报"/>:<div className="forest-poster"><BotanicalCanvas vitality={e.vitality}/></div>;
-  return <div ref={root} className={city?'city-scene':'ecosystem-scene'} data-mode={!webgl?'slow':mode}>{poster}
-    {webgl&&<div className={city?'city-canvas':'ecosystem-canvas'} style={{opacity:mode==='lost'?0:1}}><Boundary key={retry} fallback={poster}><Canvas dpr={[1,1.3]} frameloop={visible&&mode==='live'&&!reduced?'always':'demand'} camera={{fov:42,near:.1,far:150}} gl={{antialias:false,powerPreference:'high-performance',alpha:false}} fallback={poster} onCreated={({gl})=>{cleanup.current?.();let mounted=true;const lost=(event:Event)=>{event.preventDefault();if(!mounted||!gl.domElement.isConnected)return;setMode('lost');window.dispatchEvent(new CustomEvent('carbon-toast',{detail:'显卡连接暂停，已切换2D备用视图。计算和AI仍可使用。'}));};const restored=()=>{if(!mounted||!gl.domElement.isConnected)return;setMode('live');setRetry(v=>v+1);};gl.domElement.addEventListener('webglcontextlost',lost);gl.domElement.addEventListener('webglcontextrestored',restored);cleanup.current=()=>{mounted=false;gl.domElement.removeEventListener('webglcontextlost',lost);gl.domElement.removeEventListener('webglcontextrestored',restored);};}}><fog attach="fog" args={["#050B14",35,95]}/><Field city={city} onSlow={slow}/>{bloom&&<EffectComposer multisampling={0} enableNormalPass={false}><Bloom intensity={.65} luminanceThreshold={.75} luminanceSmoothing={.3} mipmapBlur /></EffectComposer>}</Canvas></Boundary></div>}
-    {(!webgl||mode==='lost')&&<span className="eco-fallback-note">{mode==='lost'?'WebGL连接暂停 · 2D后备视图':'轻量视图 · 本地计算 / AI 正常可用'}</span>}
-  </div>;
+class Boundary extends Component<{children:ReactNode;fallback:ReactNode;onError:(error:Error)=>void},{failed:boolean}>{state={failed:false};static getDerivedStateFromError(){return{failed:true};}componentDidCatch(error:Error){this.props.onError(error);}render(){return this.state.failed?this.props.fallback:this.props.children;}}
+export default function EcologicalScene({city=false}:{city?:boolean}) {
+ const {webgl,reduced,quality}=useVisualQuality(),root=useRef<HTMLDivElement>(null);
+ const [visible,setVisible]=useState(true),[pageVisible,setPageVisible]=useState(true),[bloom,setBloom]=useState(true);
+ const runtime=useSceneRuntime(webgl&&visible&&pageVisible,city?'生态点阵城市':'生态森林');
+ const annual=useDataStore(s=>s.emissions?.annual??ECOLOGY_BASELINE),e=ecologyState(annual),slow=useCallback(()=>{if(bloom)setBloom(false);else lowerVisualQuality('已降低三维分辨率与后处理');},[bloom]);
+ useEffect(()=>{const o=new IntersectionObserver(([v])=>setVisible(v.isIntersecting));if(root.current)o.observe(root.current);const visibility=()=>setPageVisible(!document.hidden);visibility();document.addEventListener('visibilitychange',visibility);return()=>{o.disconnect();document.removeEventListener('visibilitychange',visibility);};},[]);
+ const poster=city?<div className="city-poster" role="img" aria-label="绿色点阵城市静态后备海报"/>:<div className="forest-poster"><BotanicalCanvas vitality={e.vitality}/></div>;
+ return <div ref={root} className={city?'city-scene':'ecosystem-scene'} data-mode={runtime.ready?'3d':runtime.phase} data-load-state={runtime.phase}>
+ {!runtime.ready&&poster}{webgl&&!runtime.error&&<div className={city?'city-canvas':'ecosystem-canvas'} style={{opacity:runtime.lost?0:1}}><Boundary key={runtime.generation} fallback={poster} onError={runtime.fail}><SceneResources.Provider value={runtime.scope}><Canvas dpr={quality==='lite'?.8:[1,1.3]} frameloop={!visible||!pageVisible||runtime.lost?'never':reduced?'demand':'always'} camera={{fov:42,near:.1,far:150}} gl={{antialias:false,powerPreference:'high-performance',alpha:false}}>
+ <SceneLifecycle runtime={runtime}/><fog attach="fog" args={['#050B14',35,95]}/><Field city={city} onSlow={slow}/>{bloom&&quality==='full'&&<EffectComposer multisampling={0} enableNormalPass={false}><Bloom intensity={.65} luminanceThreshold={.75} luminanceSmoothing={.3} mipmapBlur/></EffectComposer>}<SceneFrameReady scope={runtime.scope} onReady={runtime.onRendered}/>
+ </Canvas></SceneResources.Provider></Boundary></div>}
+ {runtime.error?<div className="eco-fallback-note" role="status">{runtime.error}<button type="button" onClick={runtime.retry}>重试三维场景</button></div>:runtime.lost?<span className="eco-fallback-note" role="status">图形连接暂停 · 正在等待恢复</span>:!runtime.ready&&<span className="eco-fallback-note" role="status">正在初始化三维生态场景</span>}
+ </div>;
 }
-

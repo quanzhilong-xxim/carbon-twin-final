@@ -40,3 +40,20 @@
 
 .presentation-control{display:flex;align-items:center;gap:12px;padding:8px 16px;border-bottom:1px solid #728c8233;background:#142821;color:#d8e9d8;font:11px/1.5 var(--font-mono),monospace}.presentation-control button{padding:7px 12px;border:1px solid #7b9a88;border-radius:4px;transition:transform .2s}.presentation-control button:hover{transform:translateY(-1px)}.presentation-control button:disabled{opacity:.45}.room-crosshair{transition:transform .18s,color .18s,border-color .18s;border:1px solid transparent;border-radius:50%;width:26px;height:26px;display:grid;place-items:center}.room-crosshair.has-target{transform:translate(-50%,-50%) scale(1.22);color:#d9f5b6;border-color:#d9f5b699}.sculpture-label{background:#142d28e8;color:#e9f3e1;padding:7px;border:1px solid #91b7a4;border-radius:4px;font:9px/1.5 monospace;white-space:nowrap}.sculpture-label b{display:block;color:#edcfa9}.sculpture-key{background:#142b27ee;color:#e2efdf;padding:12px;border:1px solid #7b9f8c;border-radius:5px;width:230px;font:10px/1.7 monospace}.sculpture-key>*{display:block}.sculpture-key b{font-size:18px}.physics-note,.grid-flow-label{display:block;background:#132d27df;color:#deebd9;padding:6px 9px;border-radius:3px;font:9px/1.5 monospace;white-space:nowrap;pointer-events:none}.guide-source{font:9px/1.6 monospace;margin-top:8px;border-top:1px solid #7a9a8166;padding-top:7px}.guide-source summary{cursor:pointer}.guide-source p{font:9px/1.6 monospace;white-space:normal;margin:7px 0}.guide-source a{color:#ebd3a4;text-decoration:underline}.guide-source small{letter-spacing:0}
 @media(prefers-reduced-motion:reduce){.presentation-control button,.room-crosshair{transition:none}}
+
+/* Give compact screens a dedicated navigation row above the camera surface.
+   The same three entrances stay available without projected labels colliding
+   with the toolbar as the camera orbits. */
+@media(max-width:900px){
+ .twin-stage-wrap>.twin-director{position:relative;background:#142723;border-bottom:1px solid var(--twin-line)}
+ .twin-stage-wrap .twin-quality{top:12px;right:12px}
+ .twin-stage-wrap .room-view-controls{top:62px}
+ .twin-stage-wrap .twin-leva{top:62px}
+}
+@media(max-width:600px){
+ .twin-stage-wrap>.twin-director{gap:12px;padding:16px}
+ .twin-stage-wrap>.twin-director nav{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));width:100%;max-width:none;gap:8px}
+ .twin-stage-wrap>.twin-director nav button{grid-column:span 2;min-height:44px;padding:8px 4px;font-size:10px;line-height:1.5}
+ .twin-stage-wrap>.twin-director nav button:nth-last-child(-n+2){grid-column:span 3}
+ .twin-stage-wrap .landmark-label{display:none}
+}

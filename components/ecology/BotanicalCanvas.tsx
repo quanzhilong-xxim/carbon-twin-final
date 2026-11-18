@@ -3,7 +3,7 @@ import { useEffect, useRef } from 'react';
 import { useVisualQuality } from '@/lib/hooks/useVisualQuality';
 const hash = (n: number) => { const s = Math.sin(n * 127.13 + 49.71) * 43758.54; return s - Math.floor(s); };
 /** Original deterministic vector botany, rendered with the Canvas API. */
-export default function BotanicalCanvas({ vitality, compact = false, active = true }: { vitality: number; compact?: boolean; active?: boolean }) {
+export default function BotanicalCanvas({ vitality, compact = false, active = true, season }: { vitality: number; compact?: boolean; active?: boolean; season?: string }) {
   const ref = useRef<HTMLCanvasElement>(null), target = useRef(vitality);
   const { quality, reduced } = useVisualQuality();
   target.current = vitality;
@@ -22,6 +22,7 @@ export default function BotanicalCanvas({ vitality, compact = false, active = tr
       const dt = Math.min(.08, (now-last)/1000 || .016); last = now; if (!reduced && active) time += dt;
       live += (target.current-live) * (reduced ? 1 : .065);
       canvas.dataset.vitality = live.toFixed(2);
+      if (season) canvas.dataset.season = season;
       ctx.clearRect(0,0,width,height);
       const scale = Math.min(width/600,height/480), cx = width*.5, floor = height*.87;
       const glow = ctx.createRadialGradient(cx,height*.45,0,cx,height*.45,width*.55);
@@ -36,14 +37,15 @@ export default function BotanicalCanvas({ vitality, compact = false, active = tr
         ctx.strokeStyle=depth>3?'#6b735b':'#b5bd89'; ctx.lineWidth=Math.max(1,depth*1.1); ctx.lineCap='round'; ctx.stroke();
         if (depth>0) { branch(ex,ey,length*.73,a-.45,depth-1,seed+1); branch(ex,ey,length*.72,a+.48,depth-1,seed+7); }
         if (depth<=2) {
-          const growth = Math.max(0,Math.min(1,(live-hash(seed)*.38)*2));
+          const seasonal = season === 'winter' ? .06 : season === 'autumn' ? .58 : season === 'spring' ? .85 : 1;
+          const growth = Math.max(0,Math.min(1,(live-hash(seed)*.38)*2)) * seasonal;
           const leafX=ex, leafY=ey;
           if (growth>.02) {
             ctx.save(); ctx.translate(leafX,leafY); ctx.rotate(a+.6+Math.sin(time+seed)*.12);
-            ctx.fillStyle=live<.22?'#9c5c35':hash(seed)>.5?'#9ada88':'#47b58c';
+            ctx.fillStyle=season==='autumn'?(hash(seed)>.5?'#d3a052':'#ac633e'):season==='spring'?'#c2d99b':live<.22?'#9c5c35':hash(seed)>.5?'#9ada88':'#47b58c';
             ctx.beginPath(); ctx.ellipse(0,-6*growth,4.5*growth,11*growth,0,0,Math.PI*2); ctx.fill(); ctx.restore();
           }
-          if (live>.65 && hash(seed)>.56) {
+          if (live>.65 && hash(seed)>.56 && (!season || season==='spring')) {
             const bloom=Math.min(1,(live-.65)*3); ctx.save(); ctx.translate(ex,ey); ctx.fillStyle='#efdda3'; ctx.shadowColor='#f5da87';ctx.shadowBlur=5;
             for(let p=0;p<5;p++){ctx.beginPath();ctx.ellipse(Math.cos(p*1.256)*4*bloom,Math.sin(p*1.256)*4*bloom,3*bloom,3*bloom,0,0,Math.PI*2);ctx.fill();}ctx.restore();
           }
@@ -53,10 +55,11 @@ export default function BotanicalCanvas({ vitality, compact = false, active = tr
       for(let i=0;i<(quality==='lite'?20:65);i++) {
         const phase=(time*(live<.25?.1:.035)+hash(i+80))%1;
         const x=(hash(i+12)-.5)*430+Math.sin(time+i)*12;
-        const y=live<.25?-340+phase*355:-phase*340;
+        const falling=season==='winter'||season==='autumn'||live<.25;
+        const y=falling?-340+phase*355:-phase*340;
         ctx.save();ctx.translate(x,y);ctx.rotate(time*.5+i);
-        ctx.fillStyle=live<.25?'#b18346':`rgba(168,234,151,${.15+Math.sin(phase*Math.PI)*.6})`;
-        ctx.beginPath();ctx.ellipse(0,0,live<.25?3:1.6,live<.25?6:1.6,0,0,Math.PI*2);ctx.fill();ctx.restore();
+        ctx.fillStyle=season==='winter'?'#e3efed':season==='autumn'?'#c89348':live<.25?'#b18346':`rgba(168,234,151,${.15+Math.sin(phase*Math.PI)*.6})`;
+        ctx.beginPath();ctx.ellipse(0,0,season==='winter'?2:falling?3:1.6,season==='winter'?2:falling?6:1.6,0,0,Math.PI*2);ctx.fill();ctx.restore();
       }
       ctx.restore();
     };
@@ -64,6 +67,6 @@ export default function BotanicalCanvas({ vitality, compact = false, active = tr
     return()=>{cancelAnimationFrame(frame);size.disconnect();observer.disconnect();canvas.removeEventListener('pointermove',move);};
     // The animation reads new vitality through a ref; no new loop per slider update.
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [compact,active,quality,reduced]);
+  }, [compact,active,quality,reduced,season]);
   return <canvas ref={ref} className={`botanical-canvas ${compact?'compact':''}`} role="img" aria-label={vitality>.65?'复苏的数字植物，绿叶与花朵':'生态压力下的数字植物，教学隐喻'} />;
 }

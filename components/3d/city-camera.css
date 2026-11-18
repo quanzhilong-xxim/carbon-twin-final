@@ -1,0 +1,23 @@
+.city-camera-controls{display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin:0 0 16px}
+.city-camera-controls button{min-height:44px;padding:10px 18px;border:1px solid rgba(183,212,202,.28);border-radius:6px;background:#122c27;color:#e4eee7;cursor:pointer;transition:transform .22s cubic-bezier(.2,.8,.2,1),background .22s cubic-bezier(.2,.8,.2,1)}
+.city-camera-controls button[aria-pressed=true]{background:#c9dfad;color:#16251b;border-color:#c9dfad}
+.city-camera-controls button:hover:not(:disabled){transform:translateY(-2px)}
+.city-camera-controls button:focus-visible{outline:2px solid #c9dfad;outline-offset:4px}
+.city-camera-controls button:disabled{opacity:.45;cursor:default}
+.city-camera-controls span{color:#a3b9ad;font-size:12px;line-height:1.6;margin-left:8px}
+.twin-canvas .stage-performance-note{bottom:72px}
+.twin-canvas .stage-performance-note button{min-height:44px}
+.twin-canvas:has(.stage-performance-note)~.twin-chapter{opacity:0}
+.twin-canvas[data-experience=fallback]~.twin-chapter{display:none}
+.twin-canvas:has(.stage-performance-note) .twin-coordinate{visibility:hidden}
+.twin-stage-wrap:has(>.twin-canvas:is([data-experience=orbit],[data-experience=focused],[data-experience=focusing],[data-experience=returning]))::after{content:"";position:absolute;inset:38% 0 0;z-index:2;pointer-events:none;background:linear-gradient(transparent,#08191b88 48%,#08191be8)}
+.twin-canvas .twin-coordinate{z-index:5}
+.city-scene-credit{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;margin:12px 0 24px;color:#afc5ba;font-size:12px;line-height:1.6}
+.city-scene-credit span{color:#91aa9c}
+.city-fallback-spaces{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:16px 0;padding:16px;border:1px solid #a8c8b633;background:#102920}
+.city-fallback-spaces>span{margin-right:auto;color:#c5d6cb;font-size:14px}
+.city-fallback-spaces button{min-height:44px;padding:10px 16px;border:1px solid #a8c8b655;background:#152d28;color:#e5eee7}
+.city-fallback-spaces button[aria-pressed=true]{background:#c9dfad;color:#16251b}
+.city-fallback-spaces button:focus-visible{outline:2px solid #c9dfad;outline-offset:3px}
+@media(max-width:640px){.city-camera-controls span{flex-basis:100%;margin-left:0}.city-camera-controls button{flex:1}}
+@media(prefers-reduced-motion:reduce){.city-camera-controls button{transition:none}}

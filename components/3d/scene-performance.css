@@ -1,0 +1,5 @@
+.stage-performance-note{position:absolute;bottom:10px;left:12px;right:12px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;background:#10281fed;padding:10px 12px;border:1px solid #bad3bd45;border-radius:8px;color:#d3e3cf;font:12px/1.6 sans-serif;z-index:3}
+.stage-performance-note button{padding:8px 12px;border:1px solid #bad3bd70;border-radius:5px;min-height:36px}
+.stage-performance-note button:focus-visible{outline:2px solid #d8eac1;outline-offset:2px}
+.stage-loading{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:24px;background:radial-gradient(ellipse at 50% 50%,#153529dd,#071812f5);color:#e0ebdd;text-align:center;pointer-events:none;z-index:2;font:13px/1.7 sans-serif}
+.stage-loading>span{font-size:38px;color:#bfeea4}.stage-loading>b{font-weight:500;letter-spacing:.08em}.stage-loading>small{color:#b2c5ba;font-size:11px}.stage-error-reason{max-width:64ch;overflow-wrap:anywhere;font:12px/1.7 sans-serif;color:#e4d5b9}

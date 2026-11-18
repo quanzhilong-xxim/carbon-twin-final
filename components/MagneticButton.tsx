@@ -2,7 +2,7 @@
 import { useEffect, useRef, type ReactNode } from 'react';
 import { motion, useMotionValue, useSpring } from 'framer-motion';
 import { useUIStore } from '@/lib/stores/UIStore';
-export default function MagneticButton({ children, href }: { children: ReactNode; href: string }) {
+export default function MagneticButton({ children, href, onClick }: { children: ReactNode; href: string; onClick?: () => void }) {
   const ref = useRef<HTMLAnchorElement>(null), reduced = useUIStore(s => s.reduced);
   const x = useMotionValue(0), y = useMotionValue(0);
   const sx = useSpring(x, { stiffness: 300, damping: 20 }), sy = useSpring(y, { stiffness: 300, damping: 20 });
@@ -19,5 +19,5 @@ export default function MagneticButton({ children, href }: { children: ReactNode
     window.addEventListener('blur', reset); document.documentElement.addEventListener('pointerleave', reset);
     return () => { window.removeEventListener('pointermove', move); window.removeEventListener('blur', reset); document.documentElement.removeEventListener('pointerleave', reset); };
   }, [reduced, x, y]);
-  return <motion.a ref={ref} href={href} className="primary-button magnetic-button" style={{ x: sx, y: sy }}>{children}</motion.a>;
+  return <motion.a ref={ref} href={href} onClick={onClick} className="primary-button magnetic-button" style={{ x: sx, y: sy }}>{children}</motion.a>;
 }

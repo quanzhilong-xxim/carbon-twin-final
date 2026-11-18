@@ -1,6 +1,14 @@
 import { REFERENCES, type AcademicReference } from '@/lib/references';
 import { KNOWLEDGE_PASSAGES } from '@/lib/knowledge';
+import type { Identity } from '@/lib/store';
 export interface Citation { id: number; referenceId: string; title: string; url: string; excerpt: string }
+export interface RetrievalOptions { identity?: Identity }
+/** Role knowledge focus. These are retrieval hints only — they never invent facts. */
+const ROLE_HINTS: Record<Identity, string[]> = {
+  student: ['个人', '消费', '生活', '校园', '通勤', '饮食', '知识', '素养', '行为', '牛肉'],
+  business: ['企业', '组织', '核算', '边界', '范围', 'scope', '购入电力', '供应链', '披露', '盘查', '排放因子'],
+  city: ['城市', '交通', '建筑', '公共', '规划', '社区', '治理', '能源', '电网', '电动'],
+};
 const chunks = REFERENCES.filter(reference=>reference.verified).map(reference => ({ reference, text: [reference.title,reference.summary,KNOWLEDGE_PASSAGES.find(p => p.id === reference.id)?.content,reference.translation,reference.explanation,...reference.keywords].join(' ') }));
 function tokens(text: string): string[] {
   const normalized = text.toLowerCase();
@@ -18,15 +26,24 @@ function cosine(query: string[], document: string[]): number {
   for (const [token, value] of q) dot += value * (d.get(token) ?? 0);
   return qNorm && dNorm ? dot / (Math.sqrt(qNorm) * Math.sqrt(dNorm)) : 0;
 }
-/** Bounded lexical retrieval: BM25 plus a transparent cosine term-frequency score. */
-export function retrieve(question: string): Citation[] {
+/** Bounded lexical retrieval: BM25 plus a transparent cosine term-frequency score.
+ *  An optional identity adds a small, explicit preference for that role's knowledge
+ *  focus. It only re-ranks documents that already match the question; it never
+ *  returns evidence for an empty query and never fabricates a source. */
+export function retrieve(question: string, options: RetrievalOptions = {}): Citation[] {
   const query = [...new Set(tokens(question))], docs = chunks.map(c => tokens(c.text));
   const average = docs.reduce((n,d)=>n+d.length,0)/docs.length;
-  const scores = docs.map((doc,index) => ({ index, score: query.reduce((score,term) => {
-    const tf = doc.filter(t=>t===term).length, df=docs.filter(d=>d.includes(term)).length;
-    const idf=Math.log(1+(docs.length-df+.5)/(df+.5));
-    return score+idf*tf*2.2/(tf+1.2*(.25+.75*doc.length/average));
-  },0) + cosine(query, doc) * 3 }));
+  const hints = options.identity && query.length ? ROLE_HINTS[options.identity] ?? [] : [];
+  const scores = docs.map((doc,index) => {
+    const lexical = query.reduce((score,term) => {
+      const tf = doc.filter(t=>t===term).length, df=docs.filter(d=>d.includes(term)).length;
+      const idf=Math.log(1+(docs.length-df+.5)/(df+.5));
+      return score+idf*tf*2.2/(tf+1.2*(.25+.75*doc.length/average));
+    },0) + cosine(query, doc) * 3;
+    // Role hint only re-ranks documents that already matched the question.
+    const hintBonus = lexical > 0 && hints.length && hints.some(hint => chunks[index].text.toLowerCase().includes(hint)) ? 0.4 : 0;
+    return { index, score: lexical + hintBonus };
+  });
   return scores.sort((a,b)=>b.score-a.score).filter(row=>row.score>0).slice(0,3).map((row,index)=>toCitation(chunks[row.index].reference,index+1));
 }
 function toCitation(r: AcademicReference, id: number): Citation { return { id, referenceId:r.id,title:r.citation,url:r.url,excerpt:`${r.locator}: ${r.quote} 释义：${r.translation} 边界：${r.limitation}` }; }

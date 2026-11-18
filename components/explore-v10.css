@@ -1,0 +1,120 @@
+/* V10: an actual waterfront scene carries the first viewport. All rules are
+   scoped to Explore; account, archive, simulator and architecture keep theirs. */
+.ct-v7-explore .role-preview{min-height:390px}
+.ct-v7-explore .role-preview-portrait{position:absolute;inset:50px 42% 0 0;background-size:contain;background-position:center bottom;background-repeat:no-repeat;pointer-events:none;z-index:0;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.ct-v7-explore .role-preview:hover .role-preview-portrait{transform:translateY(-6px) scale(1.025)}
+.ct-v7-explore .role-preview-copy{position:relative;z-index:1;min-height:390px;padding:66px 18px 24px 55%;background:linear-gradient(90deg,transparent 32%,#0b1d14c9 56%,#0b1d14ee)}
+.ct-v7-explore .role-preview-shade{background:linear-gradient(0deg,#0b1d14f5 0%,#0b1d1433 56%)}
+.ct-v7-explore .role-preview-top{z-index:2}
+.ct-v7-explore .character-credit{font-size:10px;line-height:1.8;color:#aebfa8;margin-top:16px}.ct-v7-explore .character-credit a{text-decoration:underline;text-underline-offset:3px}
+.ct-v7-explore .identity-experience .identity-card{min-height:650px;padding:20px;background:linear-gradient(180deg,#1c352b99,#0c2019 70%),url('/media/explore-v10/innovation-v5.webp') center/cover}
+.ct-v7-explore .identity-experience .identity-student{background-image:linear-gradient(180deg,#1c352b55,#0c2019 70%),url('/media/explore-v10/valley-v5.webp')}
+.ct-v7-explore .identity-experience .identity-business{background-image:linear-gradient(180deg,#28312a55,#0c2019 70%),url('/media/explore-v10/waterfront-v5.webp')}
+.ct-v7-explore .identity-experience .avatar-stage-v3{height:340px;z-index:1}
+.ct-v7-explore .avatar-poster-v3{background-position:center bottom;background-size:auto 96%}
+.ct-v7-explore .character-views{display:flex;flex-wrap:wrap;gap:4px;margin-top:12px}
+.ct-v7-explore .character-views button{flex:1;min-height:40px;padding:6px;color:#c5d2bc;font-size:11px;border-bottom:1px solid #c8d9a83b;transition:background .2s,transform .2s}
+.ct-v7-explore .character-views button[aria-pressed=true]{color:#12291d;background:#cadbae;border-color:#cadbae}
+.ct-v7-explore .character-views button:hover{transform:translateY(-2px)}
+@media(max-width:760px){.ct-v7-explore .role-preview,.ct-v7-explore .role-preview-copy{min-height:320px}.ct-v7-explore .role-preview-copy{padding-left:54%}.ct-v7-explore .identity-experience .identity-card{min-height:600px}.ct-v7-explore .identity-experience .avatar-stage-v3{height:300px}}
+@media(prefers-reduced-motion:reduce){.ct-v7-explore .role-preview-portrait,.ct-v7-explore .character-views button{transition:none}.ct-v7-explore .role-preview:hover .role-preview-portrait,.ct-v7-explore .character-views button:hover{transform:none}}
+.ct-v7-explore #home{position:relative;isolation:isolate;padding:80px 0 0;max-width:none;background:#0a1b16;overflow:hidden}
+.ct-v7-explore #home .research-masthead{position:relative;z-index:3;margin:0 3vw;padding:14px 0;border-color:#d6d6b937}
+.ct-v7-explore #home .research-grid{position:relative;display:grid;grid-template-columns:1fr;min-height:800px;gap:0;align-items:start;padding:0;margin:0}
+.ct-v7-explore #home .research-copy{position:relative;z-index:3;grid-area:1/1;width:min(37vw,490px);padding:70px 0 24px 3.5vw;pointer-events:none;align-self:start}
+.ct-v7-explore #home .research-copy a{pointer-events:auto}
+.ct-v7-explore #home .research-copy .eyebrow{font-size:10px;color:#d6dcb7;margin-bottom:20px}
+.ct-v7-explore #home .research-title{font-size:clamp(52px,6vw,88px);line-height:1.1;text-shadow:0 3px 32px #071b16;margin-bottom:24px}
+.ct-v7-explore #home .explore-title em{font-size:.7em;color:#d9e99e}
+.ct-v7-explore #home .explore-title-tail{font-size:clamp(22px,2.1vw,31px);line-height:1.6;margin-top:26px;font-weight:400}
+.ct-v7-explore #home .research-deck{font-size:13px;line-height:1.9;max-width:32ch;color:#e0e2cc;margin-bottom:24px}
+.ct-v7-explore #home .research-actions{gap:16px;flex-wrap:wrap}
+.ct-v7-explore #home .climate-sparks{margin-top:24px;gap:20px;border-color:#cbd3ac38}
+.ct-v7-explore #home .climate-spark>span{font-size:8px;color:#cbd5ba}
+.ct-v7-explore #home .climate-spark strong{font-size:24px;color:#f0edce}
+.ct-v7-explore #home .climate-spark>small{font-size:9px;line-height:1.6;color:#c6d1b7}
+.ct-v7-explore #home .research-citations{font-size:10px;margin-top:14px}
+.ct-v7-explore #home .city-observatory{grid-area:1/1;position:relative;align-self:stretch;width:100%;height:800px;min-height:800px;overflow:hidden;border:0;border-radius:0;background:#193b35!important;box-shadow:none;margin:0;isolation:isolate}
+.ct-v7-explore #home .city-observatory:before{display:none}
+.ct-v7-explore #home .city-observatory:after{content:'';position:absolute;inset:0;height:auto;background:linear-gradient(90deg,#071b16 0%,#071b16f0 20%,#071b1694 34%,transparent 54%),linear-gradient(0deg,#0a1b16 0%,transparent 20%);pointer-events:none;z-index:1}
+.ct-v7-explore #home .city-topline{position:absolute;top:18px;right:3vw;left:auto;z-index:3;background:#10271bcc;border:1px solid #d3d4a940;padding:9px 12px;font-size:8px;border-radius:2px}
+.ct-v7-explore #home .city-view-choice{position:absolute;top:60px;right:3vw;z-index:4;padding:0}
+.ct-v7-explore #home .city-view-choice a,.ct-v7-explore #home .city-view-choice button{font-size:10px;background:#10271bd9;padding:4px 8px;color:#d8dfc3}
+.ct-v7-explore #home .city-formation{position:relative;height:100%;min-height:0;background:none;display:block;overflow:visible}
+.ct-v7-explore #home .city-formation .scene-stage{position:absolute;inset:0 0 auto;width:100%;height:650px;min-height:0;background:none}
+.ct-v7-explore #home .formation-v7 .dust-story-heading{position:absolute;right:3vw;bottom:250px;left:42%;z-index:3;display:grid;grid-template-columns:1fr auto;padding:0;gap:10px;color:#eef0d7}
+.ct-v7-explore #home .dust-story-heading>span{font-size:9px;color:#d5dbb4}
+.ct-v7-explore #home .dust-story-heading>b{font-size:22px;font-weight:400}
+.ct-v7-explore #home .dust-story-heading>p{grid-column:1/-1;max-width:46ch;font-size:13px;line-height:1.8;padding:8px 12px;background:#10271bba;border-left:2px solid #cfdda3}
+.ct-v7-explore #home .formation-v7 .formation-controls{position:absolute;right:3vw;bottom:24px;left:42%;z-index:4;margin:0;padding:14px 16px;background:#10291fee;border:1px solid #d5d4a147;border-radius:4px;backdrop-filter:blur(10px)}
+.ct-v7-explore #home .dust-story-steps{margin:0 0 8px;gap:4px;grid-template-columns:repeat(6,1fr)}
+.ct-v7-explore #home .formation-v7 .dust-story-steps button{min-height:38px;padding:6px 2px;font-size:11px;border:0;border-bottom:1px solid #b8c8a54a;background:transparent;color:#d3dec5;border-radius:0}
+.ct-v7-explore #home .formation-v7 .dust-story-steps button[aria-current=step]{background:#cbdcaa;color:#15271a;border-bottom-color:#d3dda3}
+.ct-v7-explore #home .formation-controls>label{font-size:10px}
+.ct-v7-explore #home .formation-controls input{min-height:20px;margin:0}
+.ct-v7-explore #home .dust-playback{gap:6px;margin-top:4px}
+.ct-v7-explore #home .dust-playback button{min-height:32px;padding:4px 8px;font-size:10px}
+.ct-v7-explore #home .formation-options{margin-top:6px;padding-top:4px}
+.ct-v7-explore #home .formation-options summary{font-size:10px;min-height:24px}
+.ct-v7-explore #home .formation-options[open]{max-height:220px;overflow:auto}
+.ct-v7-explore #home .dust-method-note{font-size:9px;margin:4px 0 0;line-height:1.6;color:#bfcbae}
+.ct-v7-explore #home .city-stat,.ct-v7-explore #home .city-axis,.ct-v7-explore #home .narrative-caption{display:none}
+.ct-v7-explore #home .scope-ledger{margin:0 3.5vw;position:relative;z-index:3;background:#0a1b16;padding:16px 0;border-top:1px solid #c5d1a435;gap:24px}
+.ct-v7-explore #home .research-baseline{margin:0 3.5vw;padding:18px 0}
+.ct-v7-explore #home .hero-ticker{background:#142c22}
+.ct-v7-explore #home .seam-mosaic{display:none}
+.ct-v7-explore .explore-journey{padding-top:72px}
+.ct-v7-explore .city-atlas-card{min-height:310px;--atlas-x:0px;--atlas-y:0px}
+.ct-v7-explore .city-atlas-card:before{filter:saturate(.94);background-position:52% 44%;transform:scale(1.05) translate(var(--atlas-x),var(--atlas-y))}
+.ct-v7-explore .city-atlas-card:after{background:linear-gradient(180deg,#061b1020 0%,#061b1008 30%,#061b10b8 65%,#061b10f5 100%)}
+.ct-v7-explore .city-atlas-card:hover:before,.ct-v7-explore .city-atlas-card:focus-visible:before{transform:scale(1.09) translate(var(--atlas-x),var(--atlas-y))}
+.ct-v7-explore .city-atlas-top{color:#f2eac8;text-shadow:0 2px 8px #071a10}
+.ct-v7-explore .city-atlas-copy{padding-top:90px}
+.ct-v7-explore .city-atlas-copy strong{font-size:26px}
+.ct-v7-explore .city-atlas-copy small{font-size:8px;color:#d8e2c2}
+.ct-v7-explore .city-atlas-action{font-size:10px;color:#e4ebc9}
+.ct-v7-explore .city-chapter-dialog{width:min(1140px,94vw);max-height:92dvh;max-width:none;padding:0;border:1px solid #c6d0a55e;background:#10251d;color:#e9ecd9;border-radius:8px;box-shadow:0 32px 100px #000b;overflow:auto;overscroll-behavior:contain}
+.ct-v7-explore .city-chapter-dialog[open]{display:grid;gap:0;animation:chapter-open .4s cubic-bezier(.2,.75,.25,1)}
+.ct-v7-explore .city-chapter-dialog::backdrop{background:#03130edb;backdrop-filter:blur(10px)}
+.ct-v7-explore .city-chapter-topline{display:flex;justify-content:space-between;align-items:center;padding:16px 24px;border-bottom:1px solid #b6c79d30;font:10px ui-monospace,monospace;color:#c5d3ae}
+.ct-v7-explore .city-chapter-topline button{display:grid;place-items:center;min-width:44px;min-height:44px;border:1px solid #a6bd8c55;border-radius:50%}
+.ct-v7-explore .city-chapter-layout{display:grid;grid-template-columns:1.08fr 1fr}
+.ct-v7-explore .city-chapter-layout figure{position:relative;margin:0;min-height:550px;display:flex;flex-direction:column;background:#273c30}
+.ct-v7-explore .city-chapter-layout figure img{width:100%;height:100%;min-height:530px;object-fit:cover;flex:1}
+.ct-v7-explore .city-chapter-layout figcaption{font:9px/1.6 ui-monospace,monospace;padding:12px 16px;color:#d2ddbd;background:#10241ee8}
+.ct-v7-explore .city-chapter-reading{padding:32px;display:flex;flex-direction:column;align-items:flex-start;gap:18px}
+.ct-v7-explore .city-chapter-reading h2{font-size:clamp(26px,2.6vw,36px);font-weight:400;line-height:1.45;margin:0;color:#f2f0d8}
+.ct-v7-explore .city-chapter-reading>p{font-size:13px;line-height:1.9;margin:0;color:#c7d4c1}
+.ct-v7-explore .city-chapter-lenses{display:flex;flex-wrap:wrap;gap:6px}
+.ct-v7-explore .city-chapter-lenses button{min-height:40px;border:1px solid #c1d0a440;padding:8px 10px;font-size:10px;color:#d2dfc2;transition:transform .2s,background .2s}
+.ct-v7-explore .city-chapter-lenses button[aria-pressed=true]{background:#c7daab;color:#14291b}
+.ct-v7-explore .city-chapter-lenses button:hover{transform:translateY(-2px)}
+.ct-v7-explore .city-chapter-insight{padding:16px 18px;border-left:2px solid #c9d7a0;background:#bdcda50b;min-height:150px;width:100%}
+.ct-v7-explore .city-chapter-insight h3{font-size:15px;font-weight:500;margin:0 0 10px;color:#e3e7c9}
+.ct-v7-explore .city-chapter-insight p{font-size:12px;line-height:1.9;color:#bacbb6;margin:0}
+.ct-v7-explore .city-chapter-reading .city-chapter-boundary{font-size:10px;line-height:1.8;color:#9eb59f}
+.ct-v7-explore .city-chapter-reading .primary-button{font-size:12px;min-height:44px}
+.ct-v7-explore .city-chapter-locate{font-size:11px;color:#d6dfbd;min-height:40px;border-bottom:1px solid #c3d0a34d}
+.ct-v7-explore .city-chapter-bottom{display:flex;justify-content:space-between;gap:16px;align-items:center;padding:16px 24px;border-top:1px solid #becba32d}
+.ct-v7-explore .city-chapter-bottom button{display:flex;align-items:center;gap:8px;font-size:12px;min-height:44px;white-space:nowrap}
+.ct-v7-explore .city-chapter-bottom small{font-size:8px;line-height:1.7;text-align:center;color:#a5baa1}
+@keyframes chapter-open{from{opacity:0;transform:translateY(22px) scale(.98)}to{opacity:1;transform:translateY(0) scale(1)}}
+@media(max-width:1000px){
+ .ct-v7-explore #home .research-grid{min-height:1000px}.ct-v7-explore #home .city-observatory{height:1000px;min-height:1000px}
+ .ct-v7-explore #home .research-copy{width:55vw;padding-top:50px}.ct-v7-explore #home .research-title{font-size:64px}.ct-v7-explore #home .explore-title-tail{font-size:24px}
+ .ct-v7-explore #home .city-formation .scene-stage{height:800px}.ct-v7-explore #home .formation-v7 .formation-controls{left:4vw;right:4vw;bottom:24px}.ct-v7-explore #home .formation-v7 .dust-story-heading{left:4vw;right:4vw;bottom:260px}
+ .ct-v7-explore #home .city-observatory:after{background:linear-gradient(90deg,#071b16e8,transparent 70%),linear-gradient(0deg,#0a1b16,transparent 50%)}
+}
+@media(max-width:600px){
+ .ct-v7-explore .city-atlas-card{min-height:290px}.ct-v7-explore .city-atlas-copy strong{font-size:23px}
+ .ct-v7-explore .city-chapter-layout{grid-template-columns:1fr}.ct-v7-explore .city-chapter-layout figure{min-height:260px}.ct-v7-explore .city-chapter-layout figure img{min-height:260px;height:260px;max-height:260px}.ct-v7-explore .city-chapter-reading{padding:24px 20px}.ct-v7-explore .city-chapter-bottom{padding:12px 16px;flex-wrap:wrap}.ct-v7-explore .city-chapter-bottom small{order:3;width:100%}.ct-v7-explore .city-chapter-topline{padding:10px 16px}
+ .ct-v7-explore #home{padding-top:70px}.ct-v7-explore #home .research-masthead{font-size:8px}.ct-v7-explore #home .research-masthead>span:last-child{display:none}
+ .ct-v7-explore #home .research-grid{display:grid;min-height:0}.ct-v7-explore #home .research-copy{grid-area:auto;width:100%;padding:32px 6vw;background:#0a1b16;pointer-events:auto}
+ .ct-v7-explore #home .research-title{font-size:60px}.ct-v7-explore #home .explore-title-tail{font-size:23px;margin-top:16px}.ct-v7-explore #home .research-deck{max-width:40ch}
+ .ct-v7-explore #home .city-observatory{grid-area:auto;height:690px;min-height:690px}.ct-v7-explore #home .city-formation .scene-stage{height:490px}.ct-v7-explore #home .city-observatory:after{background:linear-gradient(0deg,#0a1b16,transparent 45%)}
+ .ct-v7-explore #home .city-topline{left:6vw;right:6vw;top:8px;justify-content:space-between}.ct-v7-explore #home .city-view-choice{top:48px;right:6vw}
+ .ct-v7-explore #home .formation-v7 .dust-story-heading{left:6vw;right:6vw;bottom:244px}.ct-v7-explore #home .dust-story-heading>b{font-size:19px}
+ .ct-v7-explore #home .formation-v7 .formation-controls{left:4vw;right:4vw;bottom:16px;padding:12px}.ct-v7-explore #home .formation-v7 .dust-story-steps button{font-size:10px;min-height:44px}.ct-v7-explore #home .dust-playback button{min-height:40px}
+ .ct-v7-explore #home .scope-ledger{grid-template-columns:1fr 1fr;margin:0 6vw;gap:20px}.ct-v7-explore #home .scope-ledger p{font-size:10px;line-height:1.8}.ct-v7-explore #home .scope-ledger b{font-size:9px}
+}
+@media(prefers-reduced-motion:reduce){.ct-v7-explore #home *{scroll-behavior:auto}.ct-v7-explore .city-chapter-dialog[open]{animation:none}.ct-v7-explore .city-atlas-card:before,.ct-v7-explore .city-atlas-card:hover:before{transform:none;transition:none}}

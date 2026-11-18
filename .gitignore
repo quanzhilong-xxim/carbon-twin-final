@@ -55,3 +55,15 @@ next-env.d.ts
 
 # Local Netlify folder
 .netlify
+
+# === CarbonTwin competition submission: large runtime assets are downloaded, not committed ===
+/public/models/
+/public/media/
+/public/mediapipe/
+/public/environments/
+/public/textures/
+/public/citylight-review-*/
+/public/reviews/
+/outputs/
+/browser-tests/results/
+/tsconfig.tsbuildinfo

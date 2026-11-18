@@ -1,7 +1,8 @@
 'use client';
+import { useTexture } from '@/lib/three/scene-assets';
 import {Suspense,lazy,useEffect,useMemo,useRef,useState} from 'react';
 import {useFrame,type ThreeEvent} from '@react-three/fiber';
-import {Html,Line,TransformControls,useTexture,Grid} from '@react-three/drei';
+import { Html, Line, TransformControls, Grid } from '@react-three/drei';
 import {RectAreaLightUniformsLib} from 'three-stdlib';
 import * as THREE from 'three';
 import {ExternalModel,MODEL_BASE} from './TwinAssets';

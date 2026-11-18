@@ -1,15 +1,17 @@
 import { CASE_REFERENCES } from './cases';
+import { KNOWLEDGE_V12 } from './knowledge-v12';
 export type AcademicReference = {
   id: string; index: string; category: string; title: string; subtitle: string;
   organization: string; year: number; citation: string; locator: string;
   summary: string; quote: string; translation: string; explanation: string;
   limitation: string; url: string; doi?: string; keywords: string[]; verified?: boolean;
+  quoteKind?: 'verbatim' | 'paraphrase';
 };
 
 /** Short attributed excerpts, with our own Chinese translations and interpretation. */
 export const REFERENCES: AcademicReference[] = [
   {
-    id: 'human-influence', index: '01', category: 'THE PHYSICAL SCIENCE',
+    id: 'human-influence', index: '01', category: 'THE PHYSICAL SCIENCE', quoteKind:'verbatim',
     title: 'Unequivocal.', subtitle: '人类影响，证据确凿。', organization: 'IPCC', year: 2021,
     citation: 'IPCC AR6 · WGI · 2021', locator: 'Summary for Policymakers · A.1',
     summary: '气候归因回答的不只是“世界在变暖”，还包括“是什么导致了变暖”。',
@@ -22,7 +24,7 @@ export const REFERENCES: AcademicReference[] = [
     keywords: ['气候归因', '人为影响', '物理科学'],
   },
   {
-    id: 'scope-boundaries', index: '02', category: 'ACCOUNTING & BOUNDARIES',
+    id: 'scope-boundaries', index: '02', category: 'ACCOUNTING & BOUNDARIES', quoteKind:'verbatim',
     title: 'Draw the line.', subtitle: '先定义边界，再谈责任。', organization: 'GHG Protocol', year: 2004,
     citation: 'GHG Protocol · Corporate Standard · 2004', locator: 'Revised Edition · Chapter 4 · p. 25',
     summary: 'Scope 1、2、3 是组织温室气体核算的分类框架。它们不是三个行业的排放占比。',
@@ -110,10 +112,10 @@ export const REFERENCES: AcademicReference[] = [
     id: 'mee-power-2023', index: '10', category: 'CHINA FACTORS',
     title: 'China grid factor.', subtitle: '电力因子必须带有版本和地域。', organization: '生态环境部', year: 2025,
     citation: '生态环境部 · 2023 年电力 CO₂ 排放因子公告', locator: '官方公告页面',
-    summary: '中国电力排放因子由主管部门发布并随年份更新。',
+    summary: '2023 年全国电力平均二氧化碳排放因子为 0.5306 kg CO₂/kWh；生态环境部与国家统计局于2025-12-31发布。',
     quote: '关于发布2023年电力二氧化碳排放因子的公告。',
     translation: 'Announcement on the release of the 2023 electricity carbon dioxide emission factor.',
-    explanation: '平台保留演示因子的来源字段，并建议在正式核算时选择与地区、年份和用途匹配的官方版本。',
+    explanation: '平台采用附件表1全国平均值，演示按地理位置核算电力消费的间接CO₂；不与扣除市场化非化石电量或化石能源发电口径混用。',
     limitation: '页面公告与数据附件可能按用途提供多个口径；不得把单一演示值当成全国所有场景的最新因子。', url: 'https://www.mee.gov.cn/xxgk2018/xxgk/xxgk01/202512/t20251231_1139517.html', keywords: ['中国', '电力因子', '电网', '排放因子'],
   },
   {
@@ -161,8 +163,8 @@ export const REFERENCES: AcademicReference[] = [
     title: 'Food has a footprint.', subtitle: '食品影响要看整个生命周期。', organization: 'Poore & Nemecek', year: 2018,
     citation: 'Science · Reducing food’s environmental impacts', locator: 'Science 360(6392)',
     summary: '食物系统的影响来自土地、生产、加工、运输和消费前后的多个阶段。',
-    quote: 'Food production is responsible for one-quarter of the world’s greenhouse gas emissions.',
-    translation: '食物生产约占全球温室气体排放的四分之一。',
+    quote: 'The study compares environmental impacts across food products and producers using life-cycle data.',
+    translation: '研究利用生命周期数据比较不同食品与生产者的环境影响。',
     explanation: '研究强调供应链阶段差异，平台把牛肉输入标注为教学近似，并在报告中说明它不等于完整生命周期盘查。',
     limitation: '全球平均生命周期数据不能精确代表某个品牌、地区或饮食份量。', url: 'https://www.science.org/doi/10.1126/science.aaq0216', doi: 'https://doi.org/10.1126/science.aaq0216', keywords: ['饮食', '牛肉', '食品', '生命周期'],
   },
@@ -217,4 +219,5 @@ export const REFERENCES: AcademicReference[] = [
     limitation: '平台的生态动画不代表具体地块的生态恢复量。', url: 'https://www.ipcc.ch/srccl/', keywords: ['土地', '生态系统', '碳循环', '森林'],
   },
   ...CASE_REFERENCES,
+  ...KNOWLEDGE_V12,
 ];

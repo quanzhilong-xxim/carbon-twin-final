@@ -1,0 +1,9 @@
+const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto'),cp=require('node:child_process');
+const root=path.resolve(__dirname,'..'),out=path.join(root,'docs/recovery/v10.4');fs.mkdirSync(path.join(out,'visual-diff'),{recursive:true});
+const git=(...args)=>cp.execFileSync('git',args,{cwd:root,encoding:'utf8'}).trim();
+const sha=p=>crypto.createHash('sha256').update(fs.readFileSync(p)).digest('hex');
+const files=git('ls-files','-co','--exclude-standard','-z').split('\0').filter(Boolean);
+const frozen=files.filter(p=>/^(app\/api\/(tts|chat)|lib\/(store|learning|search)|components\/(Scope|Search)|public\/models\/characters-v10\/)/.test(p)&&fs.statSync(path.join(root,p)).isFile()).map(p=>({file:p,sha256:sha(path.join(root,p))}));
+const prior=JSON.parse(fs.readFileSync(path.join(root,'outputs/v10-explore/V10.3-current-result.json'),'utf8'));
+const result={receivedAt:new Date().toISOString(),timeboxHours:24,root,head:git('rev-parse','HEAD'),status:git('status','--porcelain=v1','-uall').split('\n'),checkpoint:'D:/CarbonTwin_Recovery_Backups/v10-visual-rebuild/V10.4-START-20261109',frozen,priorEvidence:prior,policy:{aiExecutors:1,paidCalls:0,ttsCalls:0,oldModelsRetained:true},routes:{}};
+(async()=>{for(const route of ['/','/learn','/citylight/studio']){const res=await fetch('http://127.0.0.1:3034'+route);result.routes[route]={status:res.status,bytes:(await res.text()).length}}fs.writeFileSync(path.join(out,'baseline.json'),JSON.stringify(result,null,2));fs.writeFileSync(path.join(out,'instruction-v104.md'),fs.readFileSync('C:/Users/23242/Desktop/CarbonTwin_V10.4_%E7%BB%88%E6%9E%81%E8%A1%A5%E5%85%85%E6%96%BD%E5%B7%A5%E8%AF%9D%E6%9C%AF.md'));console.log(JSON.stringify({head:result.head,frozen:frozen.length,routes:result.routes}))})().catch(e=>{console.error(e);process.exitCode=1});

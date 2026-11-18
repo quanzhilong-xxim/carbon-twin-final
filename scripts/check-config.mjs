@@ -17,5 +17,5 @@ for (const directive of ['base', 'components', 'utilities']) {
 assert(/import\s+['"]\.\/globals\.css['"]/.test(layout), 'Root layout must import globals.css.');
 assert('tailwindcss' in postcss.plugins && 'autoprefixer' in postcss.plugins, 'PostCSS plugins are incomplete.');
 assert.notEqual(nextConfig('phase-development-server').distDir, nextConfig('phase-production-build').distDir);
-assert.equal(nextConfig('phase-production-build').distDir, '.next');
-console.log('Config verified: Tailwind / PostCSS / CSS import / isolated .next-dev and .next.');
+assert.equal(nextConfig('phase-production-build').distDir, process.env.CARBONTWIN_PREVIEW_DIR || '.next');
+console.log('Config verified: Tailwind / PostCSS / CSS import / separate development and production output directories.');

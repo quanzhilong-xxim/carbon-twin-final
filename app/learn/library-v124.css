@@ -1,0 +1,31 @@
+/* Evidence is the foreground; optical effects remain behind the reading plane. */
+.learn-page .research-register-v7 .academic-card{background:#11231f;border-color:#a9c99a35;box-shadow:0 16px 32px #020c0a40}
+.learn-page .research-cover-v7{min-height:242px;margin-top:20px;padding:16px 18px 14px;border-radius:4px;background:radial-gradient(ellipse at 80% 15%,#7eab9221,transparent 65%),linear-gradient(145deg,#182f29,#0b1e19);box-shadow:inset 3px 0 #8eaf8870,0 5px 14px #020c0a55}
+.learn-page .research-cover-v7>span{color:#d9e5d4;font-size:10px}
+.learn-page .research-cover-v7>b{font-size:27px;color:#d8dbc2}
+.learn-page .research-cover-v7>small{text-align:left;color:#b9c8ae;font-size:10px;padding-top:9px;border-top:1px solid #9bb59a2e}
+.learn-page .research-cover-v7>.cover-concept{font-style:normal;font-size:14px;line-height:1.7;margin:10px 0;color:#e7eedc}
+.learn-page .evidence-cover-visual{margin-top:12px}
+.evidence-spatial-study{stroke-width:1;stroke:#b5c9ac}
+.evidence-spatial-study .study-boundary{stroke:#b5c9ac;stroke-dasharray:3 4;fill:none;opacity:.7}
+.evidence-spatial-study .study-mullion{stroke:#b5d1c8;stroke-width:.55;opacity:.8;fill:none}
+.evidence-spatial-study .study-timber{fill:#a18d705e;stroke:#c9b694;stroke-width:.75}
+.evidence-spatial-study .study-stone{fill:#c0b9a524;stroke:#c0b9a5;stroke-width:.8}
+.evidence-spatial-study .study-slat{stroke:#c3ac85;stroke-width:1.35;opacity:.65}
+.evidence-spatial-study .study-column{stroke:#b2c4bc;stroke-width:1.8}
+.evidence-spatial-study .study-plant{fill:#6f825747;stroke:#99b77b;stroke-width:.8}
+.evidence-spatial-study .study-path{stroke:#c0b9a5;opacity:.4;stroke-width:2}
+.evidence-spatial-study .study-person{stroke:#e1d5b5;fill:#e1d5b575;stroke-width:1}
+.evidence-spatial-study .study-energy{stroke:#d7e9b2;stroke-width:1.8;fill:none}
+.evidence-spatial-study .study-node{fill:#ecdfb6;stroke:none}
+.evidence-cover-art .study-caption{font-size:7px;fill:#bacbbb}
+.evidence-cover-visual[data-particle-active=true]>.evidence-cover-art{opacity:.48}
+.evidence-cover-visual[data-particle-active=true]>.evidence-particle-field{opacity:.95}
+.learn-page .research-register-v7 .academic-body{padding-bottom:20px}
+.learn-page .research-register-v7 .academic-keywords{margin-top:20px}
+.learn-page .research-register-v7 .academic-card:is(:hover,:focus-within) .academic-topline{color:#becdb5}
+.learn-page .research-register-v7 .academic-card:is(:hover,:focus-within) .academic-subtitle{color:var(--entry-accent)}
+.learn-page .research-register-v7 .academic-card:is(:hover,:focus-within) .citation-badge{color:#d9e7ca}
+.learn-page .research-register-v7 .academic-card .citation-badge:is(:hover,:focus-visible){background:#c9dfad;color:#13291d;border-color:#c9dfad}
+@media(max-width:760px){.learn-page .research-cover-v7{min-height:224px;padding:16px}.learn-page .research-cover-v7>.cover-concept{font-size:14px}}
+@media(prefers-reduced-motion:reduce){.learn-page .evidence-cover-visual>.evidence-cover-art{opacity:.9}}

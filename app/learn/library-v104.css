@@ -1,0 +1,117 @@
+/* V10.4: the knowledge room, its boundaries and its evidence drawers. */
+.learn-page .library-hero{grid-template-columns:minmax(0,.82fr) minmax(0,1.25fr);gap:40px;padding-top:48px}
+.learn-page .library-hero h1{font-family:"Microsoft YaHei","PingFang SC",sans-serif;font-weight:400;font-size:clamp(38px,4.2vw,62px);line-height:1.38;letter-spacing:0;margin:22px 0 12px}
+.learn-page .library-hero h1 i{font-style:normal;color:#c3d4ad}
+.library-english{display:block;font:italic 22px/1.5 var(--font-instrument),Georgia,serif;color:#cdbd92}
+.learn-page .library-hero-copy>p{font-size:16px;line-height:1.95;margin:24px 0}
+.learn-page .library-hero-world .scene-stage{height:570px}
+.library-entry-actions{display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.library-entry-actions>a{display:inline-flex;align-items:center;gap:8px;min-height:44px;color:#ced9c2;font-size:13px}
+.learn-page .library-hero-world{border-radius:80px 80px 12px 12px}
+.learn-page .library-hero-world figcaption{font-size:11px;gap:16px;flex-wrap:wrap;padding:18px 24px;color:#d2d9c4}
+.learn-page .library-hero-world::after{border-radius:inherit;box-shadow:inset 0 0 45px #00110825}
+.scope-theatre{margin:56px 0 32px;scroll-margin-top:120px}
+.scope-theatre>header h2{font-family:"Microsoft YaHei","PingFang SC",sans-serif;font-weight:400;font-size:clamp(28px,3.5vw,44px);line-height:1.5;margin:16px 0}
+.scope-theatre>header h2 i{font-style:normal;color:#c5d7b0}
+.scope-theatre>header p{font-size:15px;color:#becdb8;line-height:1.9}
+.scope-stage{margin:28px 0 20px;border:1px solid #c8d7af30;border-radius:12px;background:radial-gradient(ellipse at 50% 30%,#3b594031,transparent 75%),#10251c;overflow:hidden}
+.scope-stage>svg{display:block;width:100%;height:auto;min-height:230px}
+.scope-stage svg text{fill:#d5dec7;font:15px sans-serif;stroke:none}
+.scope-stage .scope-boundary{fill:#9ab9930b;stroke:#d4bf8b;stroke-width:1.5;stroke-dasharray:7 5}
+.scope-stage .scope-boundary-label{font-size:13px;fill:#d6c28e}
+.scope-facility>:not(text){opacity:.25;transition:opacity .3s}
+.scope-facility text{fill:#a9bda3}
+.scope-stage[data-active="scope-1"] [data-scope="scope-1"]>:not(text),.scope-stage[data-active="scope-2"] [data-scope="scope-2"]>:not(text),.scope-stage[data-active="scope-3"] [data-scope="scope-3"]>:not(text){opacity:1}
+.scope-stage figcaption{display:grid;grid-template-columns:190px 1fr;gap:24px;align-items:start;border-top:1px solid #c8d7af25;padding:24px 28px;min-height:116px}
+.scope-stage figcaption>span{color:#d6c28e;font-size:15px;line-height:1.9}
+.scope-stage figcaption>p{margin:0;color:#d4ddc9;font-size:15px;line-height:1.9}
+.scope-source-note{font-size:12px;line-height:1.9;color:#b0c2ac;margin:20px 0}
+.scope-source-note a{color:#d4dfc2;text-decoration:underline;text-underline-offset:3px}
+.research-paths-v7>button{border-radius:6px 6px 12px 12px;border-bottom:6px solid #08170f;box-shadow:0 6px 0 #0a1912,0 10px 18px #0002;padding-bottom:28px}
+.research-paths-v7>button::after{content:"";width:46px;height:9px;border:1px solid #adba9266;border-radius:2px;justify-self:center;margin-top:2px;box-shadow:0 3px 3px #0003}
+.learn-page .research-paths-v7>button[aria-pressed=true]{transform:translateY(5px);box-shadow:0 2px 0 #0a1912,0 12px 26px #0003;border-bottom:6px solid #53734e}
+.archive-search-help{font-size:12px;line-height:1.8;color:#b7c9b0;margin:0 0 18px}
+.research-cover-v7{display:grid;grid-template-columns:minmax(0,1fr) auto;align-content:start;min-height:220px;padding:18px 18px 14px}
+.research-cover-v7>span{max-width:100%;font-size:11px;line-height:1.7}
+.research-cover-v7>.evidence-illustration{grid-column:1/-1;position:static;width:100%;height:142px;fill:none;stroke:var(--entry-accent);stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round;color:var(--entry-accent);opacity:.9;overflow:visible}
+.evidence-illustration .evidence-land{fill:color-mix(in srgb,var(--entry-accent) 12%,transparent)}
+.evidence-illustration text{fill:var(--entry-accent);stroke:none;font:12px Georgia,serif}
+.research-cover-v7>small{grid-column:1/-1;font:10px/1.6 sans-serif;color:#b9c8ae;text-align:right}
+.research-cover-v7>.cover-concept{grid-column:1/-1;font:400 14px/1.7 "Noto Serif SC",serif;color:#e2e8d1;margin:4px 0 10px}
+.research-cover-v7>.evidence-cover-art{height:164px;margin-top:6px;stroke-width:1.35}
+.evidence-cover-art text{font:9px/1.2 ui-monospace,monospace}
+.evidence-cover-visual{grid-column:1/-1;position:relative;width:100%;aspect-ratio:320/152;margin-top:6px;isolation:isolate}
+.evidence-cover-visual>.evidence-cover-art{position:absolute;inset:0;display:block;width:100%;height:100%;margin:0;fill:none;color:var(--entry-accent);stroke:currentColor;stroke-width:1.35;stroke-linecap:round;stroke-linejoin:round;opacity:.9;transition:opacity .3s}
+.evidence-particle-field{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;opacity:0;transition:opacity .2s}
+.evidence-cover-visual[data-particle-active=true]>.evidence-particle-field{opacity:.85}
+.evidence-cover-visual[data-particle-active=true]>.evidence-cover-art{opacity:.22}
+.evidence-cover-visual[data-particle-mode=static]>.evidence-particle-field{display:none}
+@media(prefers-reduced-motion:reduce){.evidence-cover-visual>.evidence-cover-art,.evidence-particle-field{transition:none}.evidence-particle-field{display:none}}
+.learn-page .research-register-v7 .academic-body h2{font-size:36px;line-height:1.15}
+.learn-page .research-register-v7 .academic-subtitle,.learn-page .research-register-v7 .academic-summary{font-size:14px;line-height:1.85}
+.learn-page .research-register-v7 .academic-keywords button{font-size:12px}
+.fabric-studies{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.fabric-studies button{min-height:44px;padding:10px 15px;border:1px solid #aabd944f;border-radius:8px;color:#d5dfc9;background:#173326}
+.fabric-studies button[aria-pressed=true]{background:#c6d8ae;color:#11261a;border-color:#c6d8ae}
+.fabric-study-note{font-size:13px;line-height:1.9;color:#c0cfb8;min-height:50px}
+.learn-page :is(button,a,input,select):focus-visible{outline:2px solid #d7c38f;outline-offset:4px}
+@media(max-width:1100px){.learn-page .library-hero{grid-template-columns:1fr 1.15fr;gap:24px}.learn-page .library-hero-world .scene-stage{height:480px}.learn-page .library-hero h1{font-size:40px}.scope-stage figcaption{grid-template-columns:150px 1fr}}
+@media(max-width:760px){.learn-page .library-hero{grid-template-columns:1fr;padding-top:24px}.learn-page .library-hero h1{font-size:clamp(30px,8.5vw,44px);line-height:1.45}.library-english{font-size:20px}.learn-page .library-hero-world .scene-stage{height:400px}.scope-theatre{margin-top:40px}.scope-theatre>header h2 i{display:block}.scope-stage figcaption{grid-template-columns:1fr;gap:8px;padding:20px;min-height:178px}.scope-stage>svg{min-height:180px}.scope-stage svg text{font-size:18px}.scope-theatre .scope-flips{gap:12px}.research-cover-v7{min-height:214px}.library-entry-actions{gap:12px}.learn-page .research-register-v7 .academic-body h2{font-size:38px}}
+@media(prefers-reduced-motion:reduce){.scope-facility,.research-paths-v7>button{transition:none!important}.learn-page .research-paths-v7>button[aria-pressed=true]{transform:none}}
+
+/* V10.5: a complete exhibit and evidence desk, including GPU-free study. */
+.learn-page .learning-grid{grid-template-columns:minmax(0,1fr);gap:24px}
+.learn-page .learning-grid>.model-panel{padding:clamp(20px,3vw,40px)}
+.learn-page .garment-lifecycle header{max-width:780px;margin-bottom:30px}
+.learn-page .garment-lifecycle .garment-study-heading{max-width:none;display:grid;grid-template-columns:minmax(0,1.38fr) minmax(0,1fr);gap:clamp(20px,3vw,36px);align-items:center}
+.garment-study-question{min-width:0;border-left:1px solid #c7c69e50;padding:20px 0 20px 28px}
+.learn-page .garment-lifecycle .garment-study-question>p{font-size:clamp(18px,1.7vw,24px);line-height:1.8;color:#e1e4cc;margin:16px 0}
+.garment-study-question>p i{font-style:normal;color:#c5d6ad}
+.garment-study-question>small{font-size:12px;line-height:1.9;color:#bacbb4}
+.learn-page .garment-lifecycle header h2{line-height:1.45;font-size:clamp(30px,3vw,44px);font-family:"Microsoft YaHei","PingFang SC",sans-serif;font-weight:400}
+.garment-research-grid{display:grid;grid-template-columns:minmax(0,1.38fr) minmax(0,1fr);gap:clamp(20px,3vw,36px);align-items:start}
+.garment-exhibit,.garment-research-notes{min-width:0}
+.garment-view-tabs{display:flex;gap:8px}
+.garment-lifecycle :is(.garment-view-tabs,.lifecycle-tools) button{min-height:44px;border:1px solid #aabd9455;border-radius:7px;padding:9px 13px;background:#203b2c;color:#d5dfc9;font-size:13px}
+.garment-lifecycle :is(.garment-view-tabs,.lifecycle-tools) button[aria-pressed=true]{background:#c6d8ae;color:#11261a}
+.garment-lifecycle button:disabled{opacity:.42;cursor:default}
+.garment-load-recovery{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:12px 16px;margin:0 0 12px;background:#d4bf8c10;border:1px solid #d4bf8c55;border-radius:8px}
+.garment-load-recovery button{min-height:44px;border:1px solid #c9d7ad;border-radius:7px;padding:9px 13px;background:#c6d8ae;color:#11261a;font-size:13px}
+.garment-load-recovery>span{font-size:12px;line-height:1.8;color:#d4ddc6}
+.garment-view-status{font-size:12px;color:#bed0b5;line-height:1.8;min-height:44px;padding-top:12px}
+.learn-page .garment-exhibit .scene-stage,.garment-structure-view{height:490px;min-height:420px;margin:12px 0 0;border:1px solid #b2c49b40;border-radius:12px;overflow:hidden;background:#11261d}
+.learn-page .garment-exhibit .stage-fallback{display:flex;flex-direction:column;align-items:stretch;justify-content:center;padding:20px;min-height:100%;width:100%;box-sizing:border-box}
+.garment-exhibit .stage-fallback>span{font-size:10px;letter-spacing:.08em;text-align:left;color:#b7cda6;margin-bottom:12px}
+.garment-structure-view{padding:20px;display:flex;align-items:center}
+.textile-diagram{width:100%;min-width:0;text-align:left}
+.textile-diagram-heading{display:flex;flex-direction:column;gap:8px;margin:0 0 16px}
+.textile-diagram-heading>span{font-size:10px;color:#aec0a6;letter-spacing:.08em}
+.textile-diagram-heading strong{font-size:19px;font-weight:400;color:#e1e8d1}
+.textile-diagram svg{display:block;width:100%;height:auto;max-height:265px}
+.textile-scales{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;margin:14px 0}
+.textile-scales button{min-height:44px;padding:8px 4px;border:1px solid #b6ca9f44;background:#1c382a;border-radius:6px;color:#d4e1c3;font-size:12px;white-space:nowrap}
+.textile-scales button small{color:#a1b393;font-size:10px;margin-right:7px}
+.textile-scales button[aria-pressed=true]{border-color:#d7c38f;background:#d4bf8c1a;color:#f1dfb4}
+.textile-diagram>p{font-size:13px;line-height:1.85;color:#c0cfb8;margin:0;min-height:73px}
+.garment-research-notes>h3{font-weight:400;font-size:22px;margin:10px 0 14px;line-height:1.6;color:#e0e7ce}
+.garment-research-notes .fabric-studies{margin-top:0}
+.garment-research-notes .fabric-study-note{margin-bottom:10px;min-height:73px}
+.garment-research-notes .lifecycle-path{margin:16px 0;gap:6px}
+.garment-research-notes .lifecycle-path button{font-size:12px;min-height:60px;color:#cdd9c2;padding:9px 8px}
+.garment-research-notes .lifecycle-path button[aria-pressed=true]{background:#b7ca9a20;border-color:#cfbf88;color:#eee1b9}
+.garment-research-notes .lifecycle-note{padding:20px;border-radius:0 8px 8px 0}
+.garment-research-notes .lifecycle-note h3{font-weight:400;font-size:23px}
+.garment-research-notes .lifecycle-note>.section-kicker{display:block;font-size:10px;line-height:1.8;overflow-wrap:anywhere}
+.garment-research-notes .lifecycle-note p{font-size:14px;line-height:1.9}
+.garment-research-notes .lifecycle-note>button{min-height:44px;color:#dfcc9d;text-decoration:underline;text-underline-offset:4px;font-size:13px}
+.garment-research-notes .lifecycle-note>a{font-size:12px;overflow-wrap:anywhere}
+.garment-research-notes .lifecycle-note .lifecycle-tools{margin-bottom:0}
+.learn-page .learning-grid>.quiz-panel{display:grid;grid-template-columns:minmax(180px,.8fr) minmax(0,1.4fr) auto;gap:10px 30px;align-items:center;padding:28px}
+.learn-page .quiz-panel>.section-kicker{grid-column:1/-1}
+.learn-page .quiz-panel>h2{font-size:28px;line-height:1.5;margin:0}
+.learn-page .quiz-panel>.quiz-steps{margin:0}
+.learn-page .quiz-panel>.quiz-steps p{font-size:13px;margin:8px 0;line-height:1.8}
+.learn-page .quiz-panel>.method-note,.learn-page .quiz-panel>[role=alert]{grid-column:1/-1;font-size:12px}
+@media(max-width:1050px){.garment-research-grid{grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:20px}.learn-page .learning-grid>.quiz-panel{grid-template-columns:1fr 1fr}.learn-page .quiz-panel>.quiz-invite{grid-column:1/-1;justify-self:start}}
+@media(max-width:960px){.garment-research-grid,.learn-page .garment-lifecycle .garment-study-heading{grid-template-columns:minmax(0,1fr)}.garment-study-question{padding:16px 20px;border-left:2px solid #c7c69e70;background:#c7c69e08}.learn-page .garment-study-question>p{font-size:21px;margin:12px 0}.garment-research-notes .fabric-study-note{min-height:0}.garment-research-notes .lifecycle-note{padding:24px}}
+@media(max-width:760px){.garment-research-grid{grid-template-columns:minmax(0,1fr)}.learn-page .garment-exhibit .scene-stage,.garment-structure-view{height:auto;min-height:430px}.learn-page .garment-exhibit .scene-stage[data-mode="3d"]{height:430px}.learn-page .garment-exhibit .stage-fallback{min-height:430px;padding:16px}.garment-structure-view{padding:16px}.garment-research-notes .fabric-study-note{min-height:0}.learn-page .learning-grid>.quiz-panel{grid-template-columns:1fr;padding:22px}.learn-page .quiz-panel>.section-kicker,.learn-page .quiz-panel>.quiz-invite{grid-column:auto}.textile-scales button small{display:block;margin:0 0 3px}.textile-diagram>p{min-height:96px}}

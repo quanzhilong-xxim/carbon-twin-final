@@ -13,8 +13,9 @@ export interface EmissionResult {
   readonly sectors: readonly { readonly id: Sector; readonly name: string; readonly value: number }[];
 }
 /** Scenario factors are deliberately versioned; never presented as current universal factors. */
+export const FACTOR_VERSION = 'CT-2026-11-MEE2023-0.5306-EPA2.3-EWG2011-27';
 export const FACTORS = {
-  electricity: { value: .581, unit: 'kg CO₂ / kWh', source: '教学情景约定值（原始年份与发布版本待核验）', url: 'https://www.mee.gov.cn/ywgz/ydqhbh/wsqtkz/', boundary: '仅作运行电力 CO₂ 情景比较；非已核验官方因子，不含完整生命周期' },
+  electricity: { value: .5306, unit: 'kg CO₂ / kWh', source: '生态环境部、国家统计局：2023 年全国电力平均 CO₂ 因子（公告2025年第47号，2025-12-31发布）', url: 'https://www.mee.gov.cn/xxgk2018/xxgk/xxgk01/202512/t20251231_1139517.html', boundary: '中国全国平均、2023数据、地点法购电间接 CO₂；非实时电网、市场法或完整生命周期 CO₂e' },
   gasoline: { value: 2.3, unit: 'kg CO₂ / L', source: 'US EPA：汽油每美制加仑约 8,887 g CO₂，取整教学值', url: 'https://www.epa.gov/greenvehicles/greenhouse-gas-emissions-typical-passenger-vehicle', boundary: '仅燃烧 CO₂；不含燃料上游和车辆制造' },
   beef: { value: 27, unit: 'kg CO₂e / kg', source: 'EWG Meat Eaters Guide (2011)：牛肉生命周期教学情景', url: 'https://www.ewg.org/meateatersguide/a-meat-eaters-guide-to-climate-change-health-what-you-eat-matters/', boundary: '特定研究的生命周期 CO₂e；不能代表每种牛肉或产地' },
 } as const;

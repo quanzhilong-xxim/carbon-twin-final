@@ -7,14 +7,18 @@ import {useSimulator} from '@/lib/core/SimulatorEngine';
 import {evidenceContext} from '@/lib/ai/evidence';
 import {retrieve} from '@/lib/ai/retrieval';
 import {calculateSpace} from '@/lib/experience/spaces';
+import {FACTORS} from '@/lib/emissions';
 import {notifyToast} from '../Toast';
+import {useSpeech} from '@/lib/hooks/useSpeech';
+import {stopSpeech} from '@/lib/speech/player';
 
 /** The reducer remains the camera authority. Timings never fake asset readiness. */
 export default function PresentationMode(){
+ const speech=useSpeech();
  const [running,setRunning]=useState(false),[step,setStep]=useState(''),abort=useRef<AbortController|null>(null),state=useTwinStore(s=>s.experience.state),busy=useUIStore(s=>s.networkBusy);
  const {inputs}=useSimulator();
- const stop=()=>{abort.current?.abort();window.dispatchEvent(new Event('carbon-presentation-cancel'));window.speechSynthesis?.cancel();};
- useEffect(()=>()=>{abort.current?.abort();useUIStore.setState({presentation:false});window.speechSynthesis?.cancel();},[]);
+ const stop=()=>{abort.current?.abort();window.dispatchEvent(new Event('carbon-presentation-cancel'));stopSpeech();};
+ useEffect(()=>()=>{abort.current?.abort();useUIStore.setState({presentation:false});stopSpeech();},[]);
  useEffect(()=>{
   if(!running)return;
   const block=(e:Event)=>{if(e instanceof KeyboardEvent&&e.key==='Escape'){stop();e.preventDefault();return;}if(e.target instanceof Element&&e.target.closest('.presentation-control'))return;e.preventDefault();e.stopImmediatePropagation();};
@@ -45,18 +49,18 @@ export default function PresentationMode(){
    setStep('03 / 开启设备，让能耗被看见');useTwinStore.setState({sculpture:true});await pause(4);
    setStep('04 / AI 查证 · 网络超时自动切本地讲解');
    const snapshot=useTwinStore.getState(),context=evidenceContext('home','aircon',snapshot.energy,snapshot.devices,inputs);
-   window.dispatchEvent(new CustomEvent('carbon-presentation-ask',{detail:`请根据当前住宅空调参数，用120字内解释每天用电、教学约定因子0.581的适用边界，并引用IPCC的气候科学背景；气候结论不可当作设备因子来源。不改参数，不切换选中物件，action用NONE。最后反问我。演示请求 ${Date.now()}`}));
+   window.dispatchEvent(new CustomEvent('carbon-presentation-ask',{detail:`请根据当前住宅空调参数，用120字内解释每天用电、${FACTORS.electricity.value} kg CO₂/kWh（2023全国平均）的适用边界，并引用IPCC的气候科学背景；气候结论不可当作设备因子来源。不改参数，不切换选中物件，action用NONE。最后反问我。演示请求 ${Date.now()}`}));
    const aiEnd=Date.now()+22000;
    while(Date.now()<aiEnd&&!(useUIStore.getState().adviceContext===context&&useUIStore.getState().advice)){await pause(.15);}
    if(!(useUIStore.getState().adviceContext===context&&useUIStore.getState().advice)){
     window.dispatchEvent(new Event('carbon-presentation-cancel'));
     const r=calculateSpace('home',snapshot.energy,snapshot.devices),citations=retrieve('IPCC 气候科学 人类活动 减排');
-    setAdvice(`本地证据讲解（AI 未在时限内完成，非生成式回答）：当前房间 ${r.daily.toFixed(3)} kWh/日，按教学约定值 0.581 估算 ${r.scope2Daily.toFixed(3)} kg CO₂/日。原始因子版本待核验。IPCC 结论是气候背景[1]，不能证明家电因子。你愿意先比较关闭待机还是缩短时长？`,context,citations.slice(0,1));
+    setAdvice(`本地证据讲解（AI 未在时限内完成，非生成式回答）：当前房间 ${r.daily.toFixed(3)} kWh/日，按2023全国平均因子 ${FACTORS.electricity.value} 估算 ${r.scope2Daily.toFixed(3)} kg CO₂/日。地点法购电间接CO₂，不含完整生命周期。IPCC 结论是气候背景[1]，不能证明家电因子。你愿意先比较关闭待机还是缩短时长？`,context,citations.slice(0,1));
    }
    await pause(4);window.dispatchEvent(new Event('carbon-presentation-close'));
    setStep('05 / 进入 1.6 m 视高，近看机器');dispatch({type:'VIEW',view:'walk'});await wait(()=>useTwinStore.getState().experience.state==='room');await pause(5);
    dispatch({type:'VIEW',view:'orbit'});await wait(()=>useTwinStore.getState().experience.state==='room');dispatch({type:'SELECT',object:'aircon'});
-   if(useTwinStore.getState().audio&&'speechSynthesis' in window){const voice=new SpeechSynthesisUtterance('运行排放可以比较，未知的制造排放仍然保持未知。查看原文，再做选择。');voice.lang='zh-CN';window.speechSynthesis.speak(voice);}
+   if(useTwinStore.getState().audio)speech.speak('运行排放可以比较，未知的制造排放仍然保持未知。查看原文，再做选择。');
    setStep('06 / 可复算、可查证、可导出');await pause(Math.max(4,60-(performance.now()-beginning)/1000));complete=true;
    notifyToast('导览结束。空调已开启；可继续调整参数、查阅原文并导出报告。');
   }catch(error){
@@ -65,7 +69,7 @@ export default function PresentationMode(){
     notifyToast('演示已熔断：资源超时或设备进入轻量模式。数据与手动核算保留。');
    }else if(!signal.aborted)notifyToast('演示未完成，已解除控制锁，可手动继续。');
   }finally{
-   clearTimeout(deadline);window.dispatchEvent(new Event('carbon-presentation-cancel'));window.dispatchEvent(new Event('carbon-presentation-close'));window.speechSynthesis?.cancel();
+   clearTimeout(deadline);window.dispatchEvent(new Event('carbon-presentation-cancel'));window.dispatchEvent(new Event('carbon-presentation-close'));stopSpeech();
    if(!complete)useTwinStore.setState({energy:savedEnergy,sculpture:savedSculpture});
    useUIStore.setState({presentation:false});if(abort.current===controller)abort.current=null;setRunning(false);setStep('');
   }

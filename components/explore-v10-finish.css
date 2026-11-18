@@ -1,0 +1,173 @@
+/* V10 finish: preserve the working controls while giving the city room. */
+.ct-v7-explore{--explore-ink:#edf1dd;--explore-muted:#c1d0b9;--explore-lime:#cceba4;background:#081a14}
+.explore-active .site-header .nav-item.active,.explore-active .site-header .nav-item.active :is(span,svg){color:#142b1d}
+body:has(.ct-v7-explore) .site-header .nav-item[aria-current=page]{background:#cde8a4;color:#142b1d}
+body:has(.ct-v7-explore) .site-header .nav-item[aria-current=page] :is(span,svg){color:inherit}
+.explore-active .site-header{border:1px solid #bed5a52b;border-radius:14px;background:#0a1d16ed}
+.ct-v7-explore #home .research-masthead{font-size:9px;padding-block:12px}
+.ct-v7-explore #home .research-grid{min-height:650px}
+.ct-v7-explore #home .city-observatory{height:650px;min-height:650px}
+.ct-v7-explore #home .city-formation .scene-stage{height:100%}
+.ct-v7-explore #home .city-observatory:after{background:linear-gradient(90deg,#081a14 0%,#081a14ed 15%,#081a1494 30%,transparent 50%),linear-gradient(0deg,#081a14 0%,#081a1430 26%,transparent 45%)}
+.ct-v7-explore #home .research-copy{padding-top:60px;width:min(36vw,460px)}
+.ct-v7-explore #home .research-title{font-size:clamp(60px,6.4vw,94px);margin-bottom:18px;letter-spacing:0}
+.ct-v7-explore #home .explore-title-tail{font-size:clamp(22px,2.1vw,31px);margin-top:24px;line-height:1.65}
+.ct-v7-explore #home .research-deck{font-size:13px;line-height:1.9;margin-bottom:18px;max-width:30ch}
+.ct-v7-explore #home .research-citations{margin-block:18px 22px}
+.ct-v7-explore #home .research-citations>span:last-child{display:none}
+.ct-v7-explore #home .research-actions{gap:16px}
+.ct-v7-explore #home .research-actions .magnetic-button{min-height:48px}
+.ct-v7-explore #home .city-topline{background:#102c23b8;border-radius:24px;font-size:9px;padding:10px 14px;backdrop-filter:blur(12px)}
+.ct-v7-explore #home .city-view-choice{top:65px;gap:6px}
+.ct-v7-explore #home .city-view-choice a{background:#102c239c;border-radius:24px;padding:8px 12px;backdrop-filter:blur(8px)}
+.ct-v7-explore #home .formation-v7 .dust-story-heading{bottom:235px;left:48%;right:3.5vw;gap:8px;align-items:center}
+.ct-v7-explore #home .dust-story-heading>b{font-size:21px;font-family:var(--font-instrument),Georgia,serif}
+.ct-v7-explore #home .dust-story-heading>p{font-size:12px;max-width:48ch;line-height:1.8;background:#10281cb3;backdrop-filter:blur(8px);margin:0}
+.ct-v7-explore #home .formation-v7 .formation-controls{bottom:20px;left:42%;right:3.5vw;padding:12px 16px;border-radius:12px;border-color:#cceba438;box-shadow:0 16px 48px #0003;background:#0b291de0}
+.ct-v7-explore #home .formation-v7 .dust-story-steps button{border-radius:5px;min-height:36px;font-size:11px}
+.ct-v7-explore #home .formation-v7 .dust-story-steps button small{color:inherit;transition:none}
+.ct-v7-explore #home .formation-controls>label{display:flex;justify-content:space-between;color:#d4dfc8}
+.ct-v7-explore #home .formation-controls>label output{font-variant-numeric:tabular-nums}
+.ct-v7-explore #home .formation-controls .dust-playback{margin-top:4px}
+.ct-v7-explore #home .formation-controls>.dust-method-note{display:none}
+.ct-v7-explore #home .formation-options{margin-top:4px;padding-top:2px}
+.ct-v7-explore #home .formation-options[open]{position:absolute;bottom:0;left:0;right:0;max-height:340px;padding:16px;background:#0b291df7;border:1px solid #cceba455;border-radius:12px;box-shadow:0 -10px 60px #0005}
+.ct-v7-explore #home .formation-options[open] summary{margin-bottom:12px}
+.ct-v7-explore #home .scope-ledger{display:none}
+.ct-v7-explore #home .research-baseline{padding-block:12px;color:#c1d0b9;font-size:8px;border-top:1px solid #b3cc9d22}
+.ct-v7-explore .explore-climate-ledger{display:grid;grid-template-columns:1fr 1.3fr auto;align-items:center;gap:48px;margin:0 3.5vw;padding:24px 0;border-top:1px solid #c9ddb033}
+.ct-v7-explore .explore-climate-ledger>p{font:400 21px/1.6 var(--font-instrument),Georgia,serif;color:#e6ebd4;margin:0}
+.ct-v7-explore .explore-climate-ledger>p i{color:#cbe6a8}
+.ct-v7-explore .explore-climate-ledger .explore-kicker{font:9px/1.8 ui-monospace,monospace;margin-bottom:8px}
+.ct-v7-explore #home .explore-climate-ledger .climate-sparks{margin:0;padding:0;border:0;gap:32px}
+.ct-v7-explore #home .explore-climate-ledger .climate-spark strong{font-size:25px}
+.ct-v7-explore .explore-climate-ledger>a{display:flex;gap:16px;align-items:center;color:#d5e7ba;font-size:11px;min-height:44px}
+.ct-v7-explore .explore-journey{padding-top:40px}
+.ct-v7-explore .explore-section-heading{margin-bottom:24px;gap:32px}
+.ct-v7-explore .explore-section-heading h2{font-size:clamp(34px,3.7vw,56px);line-height:1.2;letter-spacing:0}
+.ct-v7-explore .explore-section-heading>p{font-size:12px;line-height:1.9;color:#b7c8b5}
+.ct-v7-explore .city-atlas{gap:10px}
+.ct-v7-explore .city-atlas-card{padding:16px 14px 14px;min-height:300px;border-radius:12px;border-color:#cceba43d;box-shadow:0 12px 36px #0002}
+.ct-v7-explore .city-atlas-card:before{filter:saturate(1.06) brightness(1.06);background-position:center;opacity:1}
+.ct-v7-explore .city-atlas-card:after{background:linear-gradient(180deg,#0a271b18,#0a271b00 38%,#071e17c9 70%,#071e17 100%)}
+.ct-v7-explore .city-atlas-card.is-active{border-color:#d2eaa6;box-shadow:0 0 0 1px #c8ec9b4d,0 10px 40px #b5ef6d12}
+.ct-v7-explore .city-atlas-card.is-active:after{background:linear-gradient(180deg,#0a271b00,#0a271b00 38%,#071e17c9 70%,#071e17 100%)}
+.ct-v7-explore .city-atlas-copy{padding-top:72px}
+.ct-v7-explore .city-atlas-copy strong{font-size:26px;color:#f2f1da;line-height:1.4}
+.ct-v7-explore .city-atlas-copy em{font-size:11px;line-height:1.7;color:#e0e6d2}
+.ct-v7-explore .city-atlas-note{font-size:10px;color:#bdcfb2}
+.ct-v7-explore .city-atlas-action{font-size:11px;min-height:36px}
+.ct-v7-explore .explore-roles{padding-top:36px;padding-bottom:24px}
+.ct-v7-explore .role-preview,.ct-v7-explore .role-preview-copy{min-height:300px}
+.ct-v7-explore .role-preview{border-radius:14px;border-color:#bfdba74d}
+.ct-v7-explore .role-preview-portrait{inset:28px 42% 0 -6%;background-size:auto 112%;background-position:center 4%;filter:drop-shadow(0 4px 16px #0005)}
+.ct-v7-explore .role-preview-copy{padding:70px 18px 24px 53%;background:linear-gradient(90deg,transparent 28%,#0b1d1480 56%,#0b1d14df)}
+.ct-v7-explore .role-preview-copy strong{font-size:clamp(21px,1.75vw,27px);line-height:1.35;text-wrap:balance}
+.ct-v7-explore .role-preview-subtitle{display:block;font-size:.68em;line-height:1.6;color:#d5dfbf}
+.ct-v7-explore .role-preview-copy em{font-size:11px;line-height:1.8;color:#d8e2ce}
+.ct-v7-explore .role-preview-cta{border:1px solid #cde8a45e;border-radius:24px;padding:9px 12px;justify-content:space-between;background:#cde8a4;color:#142b1d;max-width:160px}
+.ct-v7-explore .character-credit{font-size:9px;color:#afc2a8}
+.ct-v7-explore #home .stage-fallback .world-hotspot{top:22%;right:5%;bottom:auto;z-index:6}
+.ct-v7-explore .explore-notebook{padding-top:32px;padding-bottom:32px;border-top:1px solid #b5d59724;margin-top:28px}
+.ct-v7-explore .explore-handoff{margin-top:24px;border-radius:16px;min-height:320px}
+.ct-v7-explore .explore-handoff .evidence-copy h2{font-size:clamp(40px,4.6vw,68px)}
+.ct-v7-explore .identity-experience .identity-card{border-radius:16px}
+.ct-v7-explore :is(a,button,summary,input,select):focus-visible{outline:2px solid #d6f1ad;outline-offset:4px}
+/* A single low control rail leaves the street, waterfront and canopy visible. */
+@media(min-width:1001px){
+ .ct-v7-explore #home .research-grid,.ct-v7-explore #home .city-observatory{min-height:690px;height:690px}
+ .ct-v7-explore #home .research-copy{padding-top:44px;width:min(34vw,440px)}
+ .ct-v7-explore #home .research-title{font-size:clamp(60px,6vw,88px)}
+ .ct-v7-explore #home .formation-v7 .formation-controls{left:3.5vw;right:3.5vw;bottom:16px;display:grid;grid-template-columns:minmax(260px,1fr) auto;column-gap:24px;row-gap:5px;padding:12px 20px;border-radius:16px;background:#0b241bd9;backdrop-filter:blur(18px)}
+ .ct-v7-explore #home .formation-controls .dust-story-steps{grid-column:1;grid-row:1;margin:0;gap:8px}
+ .ct-v7-explore #home .formation-controls>label{grid-column:1;grid-row:2;font-size:9px}
+ .ct-v7-explore #home .formation-controls>input{grid-column:1;grid-row:3;min-height:16px}
+ .ct-v7-explore #home .formation-controls .dust-playback{grid-column:2;grid-row:1/3;align-self:center;display:flex;flex-wrap:nowrap;margin:0}
+ .ct-v7-explore #home .formation-controls .dust-playback button{white-space:nowrap;min-height:40px;padding:8px 12px;border-radius:24px}
+ .ct-v7-explore #home .formation-controls .formation-options{grid-column:2;grid-row:3;margin:0;padding:0;border:0}
+ .ct-v7-explore #home .formation-controls .formation-options summary{min-height:20px;font-size:9px}
+ .ct-v7-explore #home .formation-controls .formation-options[open]{left:auto;right:0;bottom:0;width:min(540px,60vw);max-height:370px;padding:20px}
+ .ct-v7-explore #home .formation-v7 .dust-story-heading{left:auto;right:3.5vw;bottom:154px;max-width:390px;grid-template-columns:auto auto;gap:8px 20px;text-shadow:0 2px 20px #031710}
+ .ct-v7-explore #home .dust-story-heading>span{font-size:8px}
+ .ct-v7-explore #home .dust-story-heading>b{font-size:19px}
+ .ct-v7-explore #home .dust-story-heading>p{font-size:11px;background:#10281ca6;border-radius:0 12px 12px 0;padding:8px 12px}
+ .ct-v7-explore #home .city-observatory:after{background:linear-gradient(90deg,#081a14 0%,#081a14ed 12%,#081a148a 28%,transparent 47%),linear-gradient(0deg,#081a14 0%,#081a141a 22%,transparent 34%)}
+ .ct-v7-explore .role-preview-copy strong{font-size:clamp(20px,1.55vw,26px);word-break:normal}
+ .ct-v7-explore .role-preview-copy em{max-width:22ch}
+}
+@media(min-width:1001px){.ct-v7-explore .city-atlas-card:hover,.ct-v7-explore .city-atlas-card:focus-visible{transform:translateY(-8px) rotate(-.35deg)}}
+@media(min-width:1101px){
+ .ct-v7-explore .city-atlas-card{height:310px;min-height:310px}
+ .ct-v7-explore .city-atlas-copy{padding-top:70px;transform:translateY(32px);transition:transform .45s cubic-bezier(.2,.7,.2,1)}
+ .ct-v7-explore .city-atlas-copy em{height:38px;opacity:0;overflow:hidden;transition:opacity .3s}
+ .ct-v7-explore .city-atlas-card:is(:hover,:focus-visible) .city-atlas-copy{transform:translateY(0)}
+ .ct-v7-explore .city-atlas-card:is(:hover,:focus-visible) .city-atlas-copy em{opacity:1}
+ .ct-v7-explore .city-atlas-card:before{background-position:50% 35%;transition:transform .7s cubic-bezier(.2,.7,.2,1),filter .7s}
+ .ct-v7-explore .city-atlas-card:is(:hover,:focus-visible):before{filter:saturate(1.1) brightness(1.1)}
+}
+@media(min-width:761px) and (max-width:1100px){
+ .ct-v7-explore #home .research-copy{width:42vw;padding-top:52px}
+ .ct-v7-explore #home .research-title{font-size:60px}
+ .ct-v7-explore #home .formation-v7 .formation-controls{left:43%}
+ .ct-v7-explore .explore-climate-ledger{gap:24px;grid-template-columns:1fr 1.5fr}
+ .ct-v7-explore .explore-climate-ledger>a{display:none}
+ .ct-v7-explore .city-atlas{grid-template-columns:repeat(3,minmax(0,1fr))}
+ .ct-v7-explore .city-atlas-card{min-height:290px}
+ .ct-v7-explore .role-preview-grid{grid-template-columns:1fr}
+ .ct-v7-explore .role-preview,.ct-v7-explore .role-preview-copy{min-height:260px}
+ .ct-v7-explore .role-preview-portrait{right:50%;background-size:auto 125%;background-position:center 2%}
+ .ct-v7-explore .role-preview-copy{padding-left:50%}
+}
+@media(max-width:760px){
+ .ct-v7-explore #home{padding-top:70px}
+ .ct-v7-explore #home .research-copy{width:100%;padding:32px 6vw 24px;background:#081a14}
+ .ct-v7-explore #home .research-title{font-size:62px}
+ .ct-v7-explore #home .explore-title-tail{font-size:23px;margin-top:18px}
+ .ct-v7-explore #home .research-deck{max-width:35ch;font-size:13px}
+ .ct-v7-explore #home .research-citations{margin-block:16px}
+ .ct-v7-explore #home .city-observatory{height:610px;min-height:610px}
+ .ct-v7-explore #home .city-formation .scene-stage{height:460px}
+ .ct-v7-explore #home .city-observatory:after{background:linear-gradient(0deg,#081a14 0%,#081a1430 40%,transparent 60%)}
+ .ct-v7-explore #home .city-topline{font-size:8px;right:6vw;left:6vw;top:4px}
+ .ct-v7-explore #home .city-view-choice{top:50px;right:6vw}
+ .ct-v7-explore #home .city-view-choice a{font-size:9px;padding:6px 10px}
+ .ct-v7-explore #home .formation-v7 .dust-story-heading{bottom:200px;left:6vw;right:6vw}
+ .ct-v7-explore #home .dust-story-heading>span{font-size:8px}
+ .ct-v7-explore #home .dust-story-heading>b{font-size:18px}
+ .ct-v7-explore #home .dust-story-heading>p{font-size:11px}
+ .ct-v7-explore #home .formation-v7 .formation-controls{left:4vw;right:4vw;bottom:12px;padding:12px}
+ .ct-v7-explore #home .formation-v7 .dust-story-steps button{min-height:44px;font-size:10px}
+ .ct-v7-explore #home .dust-playback button{min-height:40px}
+ .ct-v7-explore .explore-climate-ledger{grid-template-columns:1fr;margin:0 6vw;padding:24px 0;gap:20px}
+ .ct-v7-explore .explore-climate-ledger>p{font-size:22px}
+ .ct-v7-explore #home .explore-climate-ledger .climate-sparks{gap:20px}
+ .ct-v7-explore .explore-climate-ledger>a{font-size:12px;justify-content:space-between}
+ .ct-v7-explore #home .research-baseline>span:last-child{display:none}
+ .ct-v7-explore .explore-section-heading h2{font-size:34px;line-height:1.25}
+ .ct-v7-explore .explore-section-heading>p{font-size:12px;line-height:1.85}
+ .ct-v7-explore .city-atlas{gap:10px;grid-template-columns:repeat(2,minmax(0,1fr))}
+ .ct-v7-explore .city-atlas-card{min-height:280px;padding:14px 12px}
+ .ct-v7-explore .city-atlas-copy{padding-top:78px}
+ .ct-v7-explore .city-atlas-copy strong{font-size:23px}
+ .ct-v7-explore .city-atlas-copy small{font-size:7px;letter-spacing:0}
+ .ct-v7-explore .city-atlas-note{font-size:9px}
+ .ct-v7-explore .city-atlas-copy em{font-size:10px}
+ .ct-v7-explore .city-atlas-action{font-size:10px}
+ .ct-v7-explore .role-preview,.ct-v7-explore .role-preview-copy{min-height:280px}
+ .ct-v7-explore .role-preview-portrait{inset:32px 43% 0 -8%;background-size:auto 112%;background-position:center 4%}
+ .ct-v7-explore .role-preview-copy{padding:66px 14px 20px 52%}
+ .ct-v7-explore .role-preview-copy strong{font-size:23px}
+ .ct-v7-explore .role-preview-top{inset:16px 14px auto}
+ .ct-v7-explore .role-preview-top>span{font-size:8px}
+ .ct-v7-explore .explore-handoff{min-height:420px}
+}
+@media(prefers-reduced-motion:reduce){.ct-v7-explore .city-atlas-card:hover,.ct-v7-explore .city-atlas-card:focus-visible{transform:none}.ct-v7-explore .role-preview:hover .role-preview-portrait{transform:none}}
+
+/* Let the observation reveal move within its own space, clear of the action. */
+.ct-v7-explore .city-atlas-card{justify-content:initial}
+.ct-v7-explore .city-atlas-copy{margin-top:auto;transform:none;padding-top:64px}
+.ct-v7-explore .city-atlas-copy em{height:auto;min-height:38px;opacity:1}
+.ct-v7-explore .city-atlas-note{margin-top:8px;padding-top:10px;line-height:1.5}
+.ct-v7-explore .city-atlas-action{flex-shrink:0;margin-top:12px;padding-top:10px;line-height:1.6}
+.ct-v7-explore .city-atlas-card:is(:hover,:focus-visible) .city-atlas-copy{transform:none}
+.ct-v7-explore .identity-experience .identity-student{background-image:linear-gradient(180deg,#1c352b55,#0c2019 70%),url('/media/explore-v10/valley-v8.webp')}

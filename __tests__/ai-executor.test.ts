@@ -1,8 +1,9 @@
 import { test, expect } from '@playwright/test';
 import { createAIExecutor, extractSpeech, parseCompleteResponse } from '@/lib/ai/AIExecutor';
 import { pruneSnapshots } from '@/lib/storage/SnapshotDB';
-import { calculateEmissions, DEFAULT_ACTIVITY } from '@/lib/emissions';
+import { calculateEmissions, DEFAULT_ACTIVITY, FACTORS } from '@/lib/emissions';
 import { retrieve } from '@/lib/ai/retrieval';
+import { REFERENCES } from '@/lib/references';
 import type { AIAction, StoredCarbonSnapshot } from '@/types';
 
 const valid = JSON.stringify({ speech: '用电排放取决于活动量与因子。[1]', action: { type: 'HIGHLIGHT_CHART', target: 'energy' }, question: '哪一个习惯可以改变？' });
@@ -35,14 +36,20 @@ test('all permanent quiz records survive temporary-history pruning', () => {
 });
 test('retrieval returns bounded primary sources and prioritizes accounting boundaries', () => {
   const sources = retrieve('GHG Protocol Scope 2 购入电力 企业边界');
-  expect(sources).toHaveLength(2);
-  expect(sources[0].referenceId).toBe('scope-boundaries');
+  expect(sources.length).toBeGreaterThan(0);
+  expect(sources.length).toBeLessThanOrEqual(3);
+  expect(sources[0].referenceId).toBe('ghgp-scope2-audited');
+  expect(sources.every(source => REFERENCES.some(reference => reference.id === source.referenceId && reference.verified))).toBe(true);
   expect(sources.every(source => source.url.startsWith('https://') && source.excerpt.includes('边界'))).toBe(true);
+});
+test('retrieval omits unverified entries and returns no citations without matching terms', () => {
+  expect(retrieve('')).toEqual([]);
+  expect(retrieve('unmatchablequeryxyz')).toEqual([]);
 });
 test('scenario output changes with actual inputs and handles zero activity without NaN', () => {
   const baseline = calculateEmissions(DEFAULT_ACTIVITY, 2026);
   const changed = calculateEmissions({ ...DEFAULT_ACTIVITY, electricity: 360 }, 2026);
-  expect(changed.annual - baseline.annual).toBeCloseTo(180 * 12 * .581);
+  expect(changed.annual - baseline.annual).toBeCloseTo(180 * 12 * FACTORS.electricity.value);
   expect(changed.cumulative).toBe(changed.annual * 24);
   expect(calculateEmissions({ electricity: 0, gasoline: 0, beef: 0 }, 2026).annual).toBe(0);
 });

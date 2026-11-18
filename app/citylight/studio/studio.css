@@ -1,0 +1,10 @@
+/* Keep the measured V11 noise fix scoped to this additive route. */
+body:has(.citylight-v12-studio) .noise-overlay{display:none}
+/* Range input drives a full-screen blur in the shared decorative atmosphere.
+ * Windows WebKit empty-scene A/B: 11.6/13.0 FPS active, 41.2 FPS hidden.
+ * Disable that decoration only here; keep all model, lighting and controls.
+ * :has also restores the original effect after Next soft navigation.
+ */
+body:has(.citylight-v12-studio) .interaction-atmosphere{display:none}
+.citylight-v12-studio .citylight-viewport{min-height:720px}
+@media(max-width:767px){.citylight-v12-studio .citylight-viewport{min-height:540px}}

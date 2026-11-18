@@ -1,0 +1,944 @@
+﻿{
+    "base":  "https://carbontwin.pages.dev",
+    "generatedAt":  "2026-11-18 14:05:09",
+    "fileCount":  234,
+    "totalBytes":  847245178,
+    "files":  [
+                  {
+                      "path":  "/audio/aircon-loop.wav",
+                      "bytes":  176444
+                  },
+                  {
+                      "path":  "/draco/draco_decoder.js",
+                      "bytes":  512465
+                  },
+                  {
+                      "path":  "/draco/draco_decoder.wasm",
+                      "bytes":  192420
+                  },
+                  {
+                      "path":  "/draco/draco_wasm_wrapper.js",
+                      "bytes":  58456
+                  },
+                  {
+                      "path":  "/environments/citylight/kloppenheim_06_puresky_1k.hdr",
+                      "bytes":  1173154
+                  },
+                  {
+                      "path":  "/environments/citylight/kloppenheim_06_puresky_4k.hdr",
+                      "bytes":  17385661
+                  },
+                  {
+                      "path":  "/environments/citylight/LICENSE.md",
+                      "bytes":  636
+                  },
+                  {
+                      "path":  "/fonts/instrument-serif-latin-italic.woff2",
+                      "bytes":  15684
+                  },
+                  {
+                      "path":  "/fonts/instrument-serif-latin-normal.woff2",
+                      "bytes":  15040
+                  },
+                  {
+                      "path":  "/fonts/instrument-serif-OFL.txt",
+                      "bytes":  4405
+                  },
+                  {
+                      "path":  "/fonts/instrument-serif.woff2",
+                      "bytes":  21032
+                  },
+                  {
+                      "path":  "/fonts/manrope-latin-variable.woff2",
+                      "bytes":  24436
+                  },
+                  {
+                      "path":  "/fonts/manrope-OFL.txt",
+                      "bytes":  4387
+                  },
+                  {
+                      "path":  "/fonts/manrope.woff2",
+                      "bytes":  24532
+                  },
+                  {
+                      "path":  "/garments/coat.png",
+                      "bytes":  341419
+                  },
+                  {
+                      "path":  "/garments/jacket.png",
+                      "bytes":  421993
+                  },
+                  {
+                      "path":  "/garments/jeans.png",
+                      "bytes":  404137
+                  },
+                  {
+                      "path":  "/garments/longsleeve.png",
+                      "bytes":  597866
+                  },
+                  {
+                      "path":  "/garments/shorts.png",
+                      "bytes":  882333
+                  },
+                  {
+                      "path":  "/garments/sweater.png",
+                      "bytes":  207294
+                  },
+                  {
+                      "path":  "/garments/trousers.png",
+                      "bytes":  113560
+                  },
+                  {
+                      "path":  "/garments/tshirt.png",
+                      "bytes":  116259
+                  },
+                  {
+                      "path":  "/garments/wool.png",
+                      "bytes":  148565
+                  },
+                  {
+                      "path":  "/media/ambient.mp3",
+                      "bytes":  769148
+                  },
+                  {
+                      "path":  "/media/city-poster.svg",
+                      "bytes":  2413232
+                  },
+                  {
+                      "path":  "/media/credits.json",
+                      "bytes":  2532
+                  },
+                  {
+                      "path":  "/media/deep-woods.jpg",
+                      "bytes":  121589
+                  },
+                  {
+                      "path":  "/media/deep-woods.mp4",
+                      "bytes":  9154070
+                  },
+                  {
+                      "path":  "/media/golden-hour.jpg",
+                      "bytes":  171901
+                  },
+                  {
+                      "path":  "/media/golden-hour.mp4",
+                      "bytes":  8375587
+                  },
+                  {
+                      "path":  "/media/quiet-dawn.jpg",
+                      "bytes":  87424
+                  },
+                  {
+                      "path":  "/media/quiet-dawn.mp4",
+                      "bytes":  205033
+                  },
+                  {
+                      "path":  "/media/sakura-poster.png",
+                      "bytes":  539265
+                  },
+                  {
+                      "path":  "/media/still-water.jpg",
+                      "bytes":  429694
+                  },
+                  {
+                      "path":  "/media/still-water.mp4",
+                      "bytes":  9702084
+                  },
+                  {
+                      "path":  "/media/avatars/business.png",
+                      "bytes":  25750
+                  },
+                  {
+                      "path":  "/media/avatars/city.png",
+                      "bytes":  29435
+                  },
+                  {
+                      "path":  "/media/avatars/student.png",
+                      "bytes":  27879
+                  },
+                  {
+                      "path":  "/media/explore-v10/culture-v5.webp",
+                      "bytes":  225162
+                  },
+                  {
+                      "path":  "/media/explore-v10/full-business-v108.webp",
+                      "bytes":  39984
+                  },
+                  {
+                      "path":  "/media/explore-v10/full-city-v108.webp",
+                      "bytes":  41586
+                  },
+                  {
+                      "path":  "/media/explore-v10/full-student-v108.webp",
+                      "bytes":  57644
+                  },
+                  {
+                      "path":  "/media/explore-v10/innovation-v5.webp",
+                      "bytes":  284552
+                  },
+                  {
+                      "path":  "/media/explore-v10/mobility-v5.webp",
+                      "bytes":  162586
+                  },
+                  {
+                      "path":  "/media/explore-v10/role-business-v108.webp",
+                      "bytes":  39984
+                  },
+                  {
+                      "path":  "/media/explore-v10/role-city-v108.webp",
+                      "bytes":  41586
+                  },
+                  {
+                      "path":  "/media/explore-v10/role-student-v108.webp",
+                      "bytes":  57644
+                  },
+                  {
+                      "path":  "/media/explore-v10/symbiosis-v6.webp",
+                      "bytes":  152690
+                  },
+                  {
+                      "path":  "/media/explore-v10/valley-v5.webp",
+                      "bytes":  323422
+                  },
+                  {
+                      "path":  "/media/explore-v10/valley-v8.webp",
+                      "bytes":  212320
+                  },
+                  {
+                      "path":  "/media/explore-v10/waterfront-v5.webp",
+                      "bytes":  187714
+                  },
+                  {
+                      "path":  "/mediapipe/pose_landmarker_full.task",
+                      "bytes":  9398198
+                  },
+                  {
+                      "path":  "/mediapipe/pose_landmarker_lite.task",
+                      "bytes":  5777746
+                  },
+                  {
+                      "path":  "/mediapipe/wasm/vision_wasm_internal.js",
+                      "bytes":  336624
+                  },
+                  {
+                      "path":  "/mediapipe/wasm/vision_wasm_internal.wasm",
+                      "bytes":  14665716
+                  },
+                  {
+                      "path":  "/mediapipe/wasm/vision_wasm_module_internal.js",
+                      "bytes":  336662
+                  },
+                  {
+                      "path":  "/mediapipe/wasm/vision_wasm_module_internal.wasm",
+                      "bytes":  14665738
+                  },
+                  {
+                      "path":  "/mediapipe/wasm/vision_wasm_nosimd_internal.js",
+                      "bytes":  204669
+                  },
+                  {
+                      "path":  "/mediapipe/wasm/vision_wasm_nosimd_internal.wasm",
+                      "bytes":  10647962
+                  },
+                  {
+                      "path":  "/models/denim_jacket.glb",
+                      "bytes":  6614128
+                  },
+                  {
+                      "path":  "/models/denim_jacket.sources.json",
+                      "bytes":  1304
+                  },
+                  {
+                      "path":  "/models/avatars/business.glb",
+                      "bytes":  1386976
+                  },
+                  {
+                      "path":  "/models/avatars/city.glb",
+                      "bytes":  1414840
+                  },
+                  {
+                      "path":  "/models/avatars/student.glb",
+                      "bytes":  1412284
+                  },
+                  {
+                      "path":  "/models/behaviour-v108/cat.glb",
+                      "bytes":  818296
+                  },
+                  {
+                      "path":  "/models/behaviour-v108/cow.glb",
+                      "bytes":  720084
+                  },
+                  {
+                      "path":  "/models/behaviour-v108/sheep.glb",
+                      "bytes":  1046112
+                  },
+                  {
+                      "path":  "/models/behaviour-v108/sources.json",
+                      "bytes":  666
+                  },
+                  {
+                      "path":  "/models/behaviour-v113-candidate/woodland-companion-v113e.glb",
+                      "bytes":  3147444
+                  },
+                  {
+                      "path":  "/models/behaviour-v123/courtyard-tree.glb",
+                      "bytes":  52288
+                  },
+                  {
+                      "path":  "/models/behaviour-v123/courtyard-tree.sources.json",
+                      "bytes":  448
+                  },
+                  {
+                      "path":  "/models/characters-v10/CT_Citizen_Rain_LOD_v1.glb",
+                      "bytes":  665524
+                  },
+                  {
+                      "path":  "/models/characters-v12-candidate/CT_Business_Explore_v123g-lite.glb",
+                      "bytes":  10789132
+                  },
+                  {
+                      "path":  "/models/characters-v12-candidate/CT_Business_Explore_v123g.glb",
+                      "bytes":  15413780
+                  },
+                  {
+                      "path":  "/models/characters-v12-candidate/CT_City_Explore_v123e-lite.glb",
+                      "bytes":  15803632
+                  },
+                  {
+                      "path":  "/models/characters-v12-candidate/CT_City_Explore_v123e.glb",
+                      "bytes":  21921180
+                  },
+                  {
+                      "path":  "/models/characters-v12-candidate/CT_Student_Explore_v123b-lite.glb",
+                      "bytes":  16081048
+                  },
+                  {
+                      "path":  "/models/characters-v12-candidate/CT_Student_Explore_v123b.glb",
+                      "bytes":  21731036
+                  },
+                  {
+                      "path":  "/models/characters-v13-candidate/CT_Student_Explore_v132.glb",
+                      "bytes":  23549792
+                  },
+                  {
+                      "path":  "/models/characters-v13-candidate/CT_Student_Explore_v133-web.glb",
+                      "bytes":  8084896
+                  },
+                  {
+                      "path":  "/models/characters-v13-candidate/CT_Student_Explore_v134-lite.glb",
+                      "bytes":  19046304
+                  },
+                  {
+                      "path":  "/models/characters-v13-candidate/CT_Student_Explore_v134-web.glb",
+                      "bytes":  24215708
+                  },
+                  {
+                      "path":  "/models/characters-v13-master/student/CT_Student_Explore_Master_v135-lite.glb",
+                      "bytes":  19521420
+                  },
+                  {
+                      "path":  "/models/characters-v13-master/student/CT_Student_Explore_Master_v135.glb",
+                      "bytes":  24256060
+                  },
+                  {
+                      "path":  "/models/characters-v13-master/student/manifest.json",
+                      "bytes":  2302
+                  },
+                  {
+                      "path":  "/models/characters-v13-master/student/textures/eyeline_enh.png",
+                      "bytes":  108281
+                  },
+                  {
+                      "path":  "/models/characters-v13-master/student/textures/eyeline_final.png",
+                      "bytes":  91930
+                  },
+                  {
+                      "path":  "/models/characters-v13-master/student/textures/eyeline_new.png",
+                      "bytes":  8817
+                  },
+                  {
+                      "path":  "/models/characters-v13-master/student/textures/face_skin_enh.png",
+                      "bytes":  3678686
+                  },
+                  {
+                      "path":  "/models/characters-v13-master/student/textures/face_skin_final.png",
+                      "bytes":  3051623
+                  },
+                  {
+                      "path":  "/models/characters-v13-master/student/textures/face_skin_new.png",
+                      "bytes":  4159381
+                  },
+                  {
+                      "path":  "/models/characters-v13-master/student/textures/hair_back_enh.png",
+                      "bytes":  213102
+                  },
+                  {
+                      "path":  "/models/characters-v13-master/student/textures/hair_back_final.png",
+                      "bytes":  229892
+                  },
+                  {
+                      "path":  "/models/characters-v13-master/student/textures/hair_back_new.png",
+                      "bytes":  4091721
+                  },
+                  {
+                      "path":  "/models/characters-v13-master/student/textures/hair_front_enh.png",
+                      "bytes":  109387
+                  },
+                  {
+                      "path":  "/models/characters-v13-master/student/textures/hair_front_final.png",
+                      "bytes":  117375
+                  },
+                  {
+                      "path":  "/models/characters-v13-master/student/textures/hair_front_new.png",
+                      "bytes":  2051468
+                  },
+                  {
+                      "path":  "/models/characters-v13-master/student/textures/hair_normal_new.png",
+                      "bytes":  113982
+                  },
+                  {
+                      "path":  "/models/characters-v13-master/student/textures/iris_big.png",
+                      "bytes":  278056
+                  },
+                  {
+                      "path":  "/models/characters-v13-master/student/textures/iris_enh.png",
+                      "bytes":  242863
+                  },
+                  {
+                      "path":  "/models/characters-v13-master/student/textures/iris_new.png",
+                      "bytes":  210711
+                  },
+                  {
+                      "path":  "/models/characters-v13-master/student/textures/jacket_new.png",
+                      "bytes":  5246716
+                  },
+                  {
+                      "path":  "/models/characters-v13-master/student/textures/lash_card.png",
+                      "bytes":  5193
+                  },
+                  {
+                      "path":  "/models/characters-v13-master/student/textures/mouth_enh.png",
+                      "bytes":  60145
+                  },
+                  {
+                      "path":  "/models/characters-v13-master/student/textures/mouth_final.png",
+                      "bytes":  60145
+                  },
+                  {
+                      "path":  "/models/characters-v13-master/student/textures/mouth_new.png",
+                      "bytes":  83409
+                  },
+                  {
+                      "path":  "/models/characters-v13-master/student/textures/pants_new.png",
+                      "bytes":  5097676
+                  },
+                  {
+                      "path":  "/models/characters-v13-master/student/textures/plait_enh.png",
+                      "bytes":  492843
+                  },
+                  {
+                      "path":  "/models/characters-v13-master/student/textures/plait_final.png",
+                      "bytes":  592547
+                  },
+                  {
+                      "path":  "/models/characters-v13-master/student/textures/plait_new.png",
+                      "bytes":  1069752
+                  },
+                  {
+                      "path":  "/models/characters-v13-master/student/textures/plait_normal_new.png",
+                      "bytes":  84684
+                  },
+                  {
+                      "path":  "/models/characters-v13-master/student/textures/plait_normal_strong.png",
+                      "bytes":  749471
+                  },
+                  {
+                      "path":  "/models/characters-v13-master/student/textures/twill_normal_new.png",
+                      "bytes":  169977
+                  },
+                  {
+                      "path":  "/models/characters-v1311-candidate/CT_Student_Explore_v1311A_desktop.glb",
+                      "bytes":  24559236
+                  },
+                  {
+                      "path":  "/models/characters-v1311-candidate/CT_Student_Explore_v1311A_mobile.glb",
+                      "bytes":  19757696
+                  },
+                  {
+                      "path":  "/models/characters-v1311-candidate/CT_Student_Explore_v1311C_desktop.glb",
+                      "bytes":  24660080
+                  },
+                  {
+                      "path":  "/models/characters-v1311-candidate/CT_Student_Explore_v1311C_mobile.glb",
+                      "bytes":  19662340
+                  },
+                  {
+                      "path":  "/models/characters-v1311-candidate/CT_Student_Explore_v1311D_desktop.glb",
+                      "bytes":  24956968
+                  },
+                  {
+                      "path":  "/models/characters-v1311-candidate/CT_Student_Explore_v1311D_mobile.glb",
+                      "bytes":  20082924
+                  },
+                  {
+                      "path":  "/models/characters-v1312-candidate/CT_Student_Explore_v1312A_desktop.glb",
+                      "bytes":  24960148
+                  },
+                  {
+                      "path":  "/models/characters-v1312-candidate/CT_Student_Explore_v1312A_mobile.glb",
+                      "bytes":  20082176
+                  },
+                  {
+                      "path":  "/models/characters-v136-candidate/CT_Student_Explore_Master_v136_E-lite.glb",
+                      "bytes":  4615636
+                  },
+                  {
+                      "path":  "/models/characters-v136-candidate/CT_Student_Explore_Master_v136_E.glb",
+                      "bytes":  9747828
+                  },
+                  {
+                      "path":  "/models/characters-v137-candidate/CT_Student_Explore_v137C_desktop.glb",
+                      "bytes":  24658324
+                  },
+                  {
+                      "path":  "/models/characters-v137-candidate/CT_Student_Explore_v137C_mobile.glb",
+                      "bytes":  19741184
+                  },
+                  {
+                      "path":  "/models/characters-v138-candidate/CT_Student_Explore_v138B_desktop.glb",
+                      "bytes":  24662380
+                  },
+                  {
+                      "path":  "/models/characters-v138-candidate/CT_Student_Explore_v138B_mobile.glb",
+                      "bytes":  19752204
+                  },
+                  {
+                      "path":  "/models/characters-v139-candidate/CT_Student_Explore_v139A_desktop.glb",
+                      "bytes":  24653612
+                  },
+                  {
+                      "path":  "/models/characters-v139-candidate/CT_Student_Explore_v139A_mobile.glb",
+                      "bytes":  19755416
+                  },
+                  {
+                      "path":  "/models/city-studies/ASSET-SOURCES.md",
+                      "bytes":  2442
+                  },
+                  {
+                      "path":  "/models/city-studies/b01-diagrid-lod.glb",
+                      "bytes":  499388
+                  },
+                  {
+                      "path":  "/models/city-studies/b01-diagrid.glb",
+                      "bytes":  3045132
+                  },
+                  {
+                      "path":  "/models/city-studies/b02-spiral-lod.glb",
+                      "bytes":  734996
+                  },
+                  {
+                      "path":  "/models/city-studies/b02-spiral.glb",
+                      "bytes":  4629012
+                  },
+                  {
+                      "path":  "/models/city-studies/b03-deco-lod.glb",
+                      "bytes":  332404
+                  },
+                  {
+                      "path":  "/models/city-studies/b03-deco.glb",
+                      "bytes":  1627172
+                  },
+                  {
+                      "path":  "/models/city-studies/manifest.json",
+                      "bytes":  8897
+                  },
+                  {
+                      "path":  "/models/city-studies/pedestrian.glb",
+                      "bytes":  16832
+                  },
+                  {
+                      "path":  "/models/city-studies/potsdamer_platz_1k.hdr",
+                      "bytes":  1540678
+                  },
+                  {
+                      "path":  "/models/city-studies/vehicle-bus.glb",
+                      "bytes":  37228
+                  },
+                  {
+                      "path":  "/models/city-studies/vehicle-delivery.glb",
+                      "bytes":  25780
+                  },
+                  {
+                      "path":  "/models/city-studies/vehicle-electric.glb",
+                      "bytes":  25816
+                  },
+                  {
+                      "path":  "/models/city-studies/vehicle-sedan.glb",
+                      "bytes":  25328
+                  },
+                  {
+                      "path":  "/models/city-studies/vehicle-taxi.glb",
+                      "bytes":  26884
+                  },
+                  {
+                      "path":  "/models/city-studies/venice_sunset_1k.hdr",
+                      "bytes":  1440400
+                  },
+                  {
+                      "path":  "/models/citylight/light-tower-v1.glb",
+                      "bytes":  2597960
+                  },
+                  {
+                      "path":  "/models/citylight/light-tower-v2.glb",
+                      "bytes":  2651160
+                  },
+                  {
+                      "path":  "/models/citylight/manifest-v1.json",
+                      "bytes":  1555
+                  },
+                  {
+                      "path":  "/models/citylight/manifest-v2.json",
+                      "bytes":  1635
+                  },
+                  {
+                      "path":  "/models/citylight/manifest.json",
+                      "bytes":  1635
+                  },
+                  {
+                      "path":  "/models/citylight/v11/manifest.json",
+                      "bytes":  8262
+                  },
+                  {
+                      "path":  "/models/citylight/v11/terrace-lantern-b-lod.glb",
+                      "bytes":  1382836
+                  },
+                  {
+                      "path":  "/models/citylight/v11/terrace-lantern-b.glb",
+                      "bytes":  4220472
+                  },
+                  {
+                      "path":  "/models/citylight/v11/tide-gate-a-lod.glb",
+                      "bytes":  1679736
+                  },
+                  {
+                      "path":  "/models/citylight/v11/tide-gate-a.glb",
+                      "bytes":  5710028
+                  },
+                  {
+                      "path":  "/models/citylight/v12/light-court-lod.glb",
+                      "bytes":  4137180
+                  },
+                  {
+                      "path":  "/models/citylight/v12/light-court.glb",
+                      "bytes":  25444628
+                  },
+                  {
+                      "path":  "/models/citylight/v12/manifest.json",
+                      "bytes":  11687
+                  },
+                  {
+                      "path":  "/models/citylight/v12/sample-room-night-irradiance-r28c.png",
+                      "bytes":  212237
+                  },
+                  {
+                      "path":  "/models/citylight/v12/sample-room-night-irradiance-r28d.png",
+                      "bytes":  635129
+                  },
+                  {
+                      "path":  "/models/citylight/v12/sample-room-night-irradiance-r29.png",
+                      "bytes":  2777179
+                  },
+                  {
+                      "path":  "/models/citylight/v12/sample-room-night-irradiance-r31.png",
+                      "bytes":  2649373
+                  },
+                  {
+                      "path":  "/models/citylight/v12/sample-room-night-irradiance-r32.png",
+                      "bytes":  3341328
+                  },
+                  {
+                      "path":  "/models/citylight/v14-lab/facade-specimen.glb",
+                      "bytes":  4281504
+                  },
+                  {
+                      "path":  "/models/citylight/v14-lab/manifest.json",
+                      "bytes":  818
+                  },
+                  {
+                      "path":  "/models/citylight/v14-lab/resources/concrete_tiles_02_diff_1k.jpg",
+                      "bytes":  599451
+                  },
+                  {
+                      "path":  "/models/citylight/v14-lab/resources/concrete_tiles_02_nor_gl_1k.jpg",
+                      "bytes":  649927
+                  },
+                  {
+                      "path":  "/models/citylight/v14-lab/resources/concrete_tiles_02_rough_1k.jpg",
+                      "bytes":  170230
+                  },
+                  {
+                      "path":  "/models/citylight/v14-lab/resources/sources.json",
+                      "bytes":  1979
+                  },
+                  {
+                      "path":  "/models/citylight/v14-lab/resources/venice_sunset_1k.hdr",
+                      "bytes":  1440400
+                  },
+                  {
+                      "path":  "/models/citylight/v16-study/r2/crystal.glb",
+                      "bytes":  2505400
+                  },
+                  {
+                      "path":  "/models/citylight/v16-study/r2/manifest.json",
+                      "bytes":  55483
+                  },
+                  {
+                      "path":  "/models/citylight/v16-study/r2/terrace.glb",
+                      "bytes":  2592984
+                  },
+                  {
+                      "path":  "/models/citylight/v16-study/r3/crystal.glb",
+                      "bytes":  2381916
+                  },
+                  {
+                      "path":  "/models/citylight/v16-study/r3/manifest.json",
+                      "bytes":  56689
+                  },
+                  {
+                      "path":  "/models/citylight/v16-study/r3/terrace.glb",
+                      "bytes":  2256368
+                  },
+                  {
+                      "path":  "/models/citylight/v17/massing-r1/manifest.json",
+                      "bytes":  747
+                  },
+                  {
+                      "path":  "/models/citylight/v17/massing-r1/tower01-massing.glb",
+                      "bytes":  84764
+                  },
+                  {
+                      "path":  "/models/clothing/jacket.glb",
+                      "bytes":  947364
+                  },
+                  {
+                      "path":  "/models/clothing/jeans.glb",
+                      "bytes":  2743972
+                  },
+                  {
+                      "path":  "/models/clothing/shorts.glb",
+                      "bytes":  339944
+                  },
+                  {
+                      "path":  "/models/clothing/sources.json",
+                      "bytes":  6566
+                  },
+                  {
+                      "path":  "/models/clothing/sweater.glb",
+                      "bytes":  380772
+                  },
+                  {
+                      "path":  "/models/clothing/trousers.glb",
+                      "bytes":  900796
+                  },
+                  {
+                      "path":  "/models/clothing/tshirt.glb",
+                      "bytes":  221752
+                  },
+                  {
+                      "path":  "/models/clothing/textures/denim_fabric-Diffuse.jpg",
+                      "bytes":  886486
+                  },
+                  {
+                      "path":  "/models/clothing/textures/denim_fabric-nor_gl.jpg",
+                      "bytes":  474669
+                  },
+                  {
+                      "path":  "/models/clothing/textures/fabric_pattern_05-nor_gl.jpg",
+                      "bytes":  903085
+                  },
+                  {
+                      "path":  "/models/clothing/textures/knitted_fleece-Diffuse.jpg",
+                      "bytes":  887569
+                  },
+                  {
+                      "path":  "/models/clothing/textures/knitted_fleece-nor_gl.jpg",
+                      "bytes":  1128139
+                  },
+                  {
+                      "path":  "/models/draco/draco_decoder.js",
+                      "bytes":  512465
+                  },
+                  {
+                      "path":  "/models/draco/draco_decoder.wasm",
+                      "bytes":  192420
+                  },
+                  {
+                      "path":  "/models/draco/draco_wasm_wrapper.js",
+                      "bytes":  58456
+                  },
+                  {
+                      "path":  "/models/research/CT_AcademicPlant_LOD.glb",
+                      "bytes":  954820
+                  },
+                  {
+                      "path":  "/models/research/CT_LibraryShelf_v104.glb",
+                      "bytes":  1497684
+                  },
+                  {
+                      "path":  "/models/twin/aircon.glb",
+                      "bytes":  603424
+                  },
+                  {
+                      "path":  "/models/twin/barChair.glb",
+                      "bytes":  370632
+                  },
+                  {
+                      "path":  "/models/twin/city.glb",
+                      "bytes":  185960
+                  },
+                  {
+                      "path":  "/models/twin/coffeeCart.glb",
+                      "bytes":  485280
+                  },
+                  {
+                      "path":  "/models/twin/desk.glb",
+                      "bytes":  168272
+                  },
+                  {
+                      "path":  "/models/twin/facade.glb",
+                      "bytes":  929044
+                  },
+                  {
+                      "path":  "/models/twin/interior.hdr",
+                      "bytes":  1476953
+                  },
+                  {
+                      "path":  "/models/twin/kettle.glb",
+                      "bytes":  383004
+                  },
+                  {
+                      "path":  "/models/twin/night.hdr",
+                      "bytes":  1745132
+                  },
+                  {
+                      "path":  "/models/twin/plant.glb",
+                      "bytes":  636960
+                  },
+                  {
+                      "path":  "/models/twin/sofa.glb",
+                      "bytes":  187652
+                  },
+                  {
+                      "path":  "/models/twin/sofaModern.glb",
+                      "bytes":  272024
+                  },
+                  {
+                      "path":  "/models/twin/sources.json",
+                      "bytes":  2341
+                  },
+                  {
+                      "path":  "/models/twin/table.glb",
+                      "bytes":  148908
+                  },
+                  {
+                      "path":  "/models/twin/television.glb",
+                      "bytes":  140208
+                  },
+                  {
+                      "path":  "/models/twin/wood-color.jpg",
+                      "bytes":  721641
+                  },
+                  {
+                      "path":  "/models/twin/wood-normal.jpg",
+                      "bytes":  515725
+                  },
+                  {
+                      "path":  "/models/twin/wood-rough.jpg",
+                      "bytes":  560815
+                  },
+                  {
+                      "path":  "/models/urban-vegetation/CT_ParkTree_Hero_v4.glb",
+                      "bytes":  12747772
+                  },
+                  {
+                      "path":  "/models/urban-vegetation/CT_ParkTree_StreetLite_v3.glb",
+                      "bytes":  1326004
+                  },
+                  {
+                      "path":  "/models/urban-vegetation/CT_ParkTree_Web_v3.glb",
+                      "bytes":  6975580
+                  },
+                  {
+                      "path":  "/textures/home-grain.png",
+                      "bytes":  25800
+                  },
+                  {
+                      "path":  "/textures/behaviour-v108/grass/color.jpg",
+                      "bytes":  666655
+                  },
+                  {
+                      "path":  "/textures/behaviour-v108/grass/normal.jpg",
+                      "bytes":  904956
+                  },
+                  {
+                      "path":  "/textures/behaviour-v108/grass/roughness.jpg",
+                      "bytes":  362214
+                  },
+                  {
+                      "path":  "/textures/behaviour-v108/grass/sources.json",
+                      "bytes":  1134
+                  },
+                  {
+                      "path":  "/textures/characters-v11/business-emerald-brocade.png",
+                      "bytes":  38941
+                  },
+                  {
+                      "path":  "/textures/characters-v11/business-midnight-pinstripe.png",
+                      "bytes":  27164
+                  },
+                  {
+                      "path":  "/textures/characters-v11/city-ivory-wool.png",
+                      "bytes":  21650
+                  },
+                  {
+                      "path":  "/textures/characters-v11/student-lavender-canvas.png",
+                      "bytes":  21058
+                  },
+                  {
+                      "path":  "/textures/characters-v11/student-sand-cargo.png",
+                      "bytes":  22608
+                  },
+                  {
+                      "path":  "/textures/research/natural-earth-land.png",
+                      "bytes":  13800
+                  },
+                  {
+                      "path":  "/textures/research/SOURCES.md",
+                      "bytes":  613
+                  },
+                  {
+                      "path":  "/textures/research/library-floor-v104/color.jpg",
+                      "bytes":  729028
+                  },
+                  {
+                      "path":  "/textures/research/library-floor-v104/normal.jpg",
+                      "bytes":  434460
+                  },
+                  {
+                      "path":  "/textures/research/library-floor-v104/roughness.jpg",
+                      "bytes":  548918
+                  },
+                  {
+                      "path":  "/textures/sakura/bark-color.jpg",
+                      "bytes":  659592
+                  },
+                  {
+                      "path":  "/textures/sakura/bark-normal.jpg",
+                      "bytes":  1015623
+                  },
+                  {
+                      "path":  "/textures/sakura/bark-roughness.jpg",
+                      "bytes":  337946
+                  }
+              ]
+}

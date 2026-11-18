@@ -1,9 +1,10 @@
 'use client';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useCarbonStore, THEMES } from '@/lib/store';
 import { useUIStore } from '@/lib/stores/UIStore';
 
 export default function ThemeBridge() {
+  const [preferencesLoaded,setPreferencesLoaded]=useState(false);
   const identity = useCarbonStore(s => s.activeIdentity);
   const preference = useUIStore(s => s.motionPreference);
   const emotion = useUIStore(s => s.emotion);
@@ -14,9 +15,10 @@ export default function ThemeBridge() {
     const motion = localStorage.getItem('carbontwin-motion');
     if (motion === 'reduce' || motion === 'full') useUIStore.setState({ motionPreference: motion });
     } catch { /* Optional storage must not prevent the experience from mounting. */ }
+    setPreferencesLoaded(true);
   }, []);
   useEffect(() => {
-    try { localStorage.setItem('carbontwin-identity', identity); } catch { /* Optional persistence. */ }
+    if(preferencesLoaded)try { localStorage.setItem('carbontwin-identity', identity); } catch { /* Optional persistence. */ }
     const theme = THEMES[identity], root = document.documentElement;
     const danger = emotion === 'danger';
     root.style.setProperty('--current-bg-orb', danger ? '#9F243E' : emotion === 'safe' ? '#167E69' : theme.orb);
@@ -26,7 +28,7 @@ export default function ThemeBridge() {
     root.style.setProperty('--theme-accent', accent);
     root.dataset.danger = String(danger);
     root.dataset.identity = identity;
-  }, [identity, emotion]);
+  }, [identity, emotion,preferencesLoaded]);
   useEffect(() => {
     const media = matchMedia('(prefers-reduced-motion: reduce)');
     const sync = () => { const reduced = preference === 'reduce' || (preference === 'system' && media.matches); useUIStore.setState({ reduced }); document.documentElement.dataset.reducedMotion = String(reduced); };

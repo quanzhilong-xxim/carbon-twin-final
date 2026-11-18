@@ -26,7 +26,7 @@ export function validateSourceAttribution(text:string,citations:Citation[]):bool
 /** Reject known malformed spellings of the teaching factor, not general semantics. */
 export function validateFactorUnits(text:string):boolean {
  const normalized=text.replace(/[*_`]/g,'').replace(/\s+/g,' ').replace(/CO[₂2](?:e)?/gi,'');
- return !/(?:0[.,]581|\.581)\s*(?:kwh|千瓦时|度电)(?:\s*(?:\/|／|per|每)\s*(?:kg|千克|公斤)|\s*[⁻^−-]\s*(?:[−-]?\s*[¹1]))/i.test(normalized);
+ return !/(?:0[.,](?:581|5306)|\.(?:581|5306))\s*(?:kwh|千瓦时|度电)(?:\s*(?:\/|／|per|每)\s*(?:kg|千克|公斤)|\s*[⁻^−-]\s*(?:[−-]?\s*[¹1]))/i.test(normalized);
 }
 /** An explicit refusal with no fabricated marker is safe to display, never to execute. */
 export function isEvidenceAbstention(text:string,citations:Citation[]):boolean {

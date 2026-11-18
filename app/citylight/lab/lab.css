@@ -1,0 +1,7 @@
+/* V11 five-stage + one-factor A/B: the full-viewport feTurbulence overlay
+ * limits Windows WebKit to ~14 FPS even with zero draw calls. Disable only
+ * this decoration on the isolated lab route; retain geometry/materials,
+ * original routes, cursor, header blur and all interaction controls.
+ * :has scopes the override even while Next retains this route stylesheet.
+ */
+body:has(.citylight-v11-lab) .noise-overlay{display:none}
